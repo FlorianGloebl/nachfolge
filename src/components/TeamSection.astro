@@ -1,23 +1,48 @@
 ---
 const team = [
-  { name: 'Florian Glöbl', image: '/images/team/florian-gloebl.webp' },
-  { name: 'Simone Heigl', image: '/images/team/simone-heigl.webp' },
-  { name: 'Kim Flores', image: '/images/team/kim-flores.webp' },
-  { name: 'Michael Kasteleiner', image: '/images/team/michael-kasteleiner.webp' },
-  { name: 'Susanne Stroet', image: '/images/team/susanne-stroet.webp' },
+  {
+    name: 'Florian Glöbl',
+    role: 'Geschäftsführer, G&P Management Consultants',
+    image: '/images/team/florian-gloebl.webp',
+    text: 'Begleitet Unternehmer und Führungsteams pragmatisch und mit unternehmerischem Blick durch Wachstum, Führung und Nachfolge – mit Fokus auf klare Verantwortlichkeiten und wirksame Organisation.',
+  },
+  {
+    name: 'Simone Heigl',
+    role: 'Partner, G&P Management Consultants',
+    image: '/images/team/simone-heigl.webp',
+    text: 'Verbindet Führung, Kommunikation und Organisationsentwicklung mit psychologischer Tiefe – ihr Schwerpunkt ist Organisation, Führung & Nachfolge.',
+  },
+  {
+    name: 'Kim Flores',
+    role: 'Beraterin, Flores Advisory',
+    image: '/images/team/kim-flores.webp',
+    text: 'Begleitet M&A-Prozesse, strategische Weichenstellungen und Finanzierungsfragen – insbesondere wenn eine Nachfolge auch über einen Verkauf oder externe Investoren gelingen soll.',
+  },
+  {
+    name: 'Michael Kasteleiner',
+    role: 'Berater, Vollmer & Scheffczyk',
+    image: '/images/team/michael-kasteleiner.webp',
+    text: 'Über 15 Jahre Erfahrung in industrieller Führung und Lean-Transformation – begleitet als Sparringspartner Entscheider dabei, Organisationen auch für die Zeit nach der Übergabe wettbewerbsfähig aufzustellen.',
+  },
+  {
+    name: 'Susanne Stroet',
+    role: 'Beraterin, Vollmer & Scheffczyk',
+    image: '/images/team/susanne-stroet.webp',
+    text: 'Systemischer Coach mit Erfahrung aus Kundenbeziehungsmanagement und Organisationsentwicklung – unterstützt dabei, Silos aufzubrechen und neue Formen der Zusammenarbeit nach einem Führungswechsel zu gestalten.',
+  },
 ];
 ---
 
 <section class="bg-gp-warm-white py-24 md:py-32" id="team">
   <div class="mx-auto max-w-(--container-content) px-5 sm:px-8">
     <div class="max-w-2xl reveal">
-      <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-gp-black">
+      <h2 class="font-display font-bold text-[26px] md:text-4xl lg:text-5xl leading-tight text-gp-black">
         Nachfolge braucht mehr als eine Perspektive.
       </h2>
       <p class="mt-4 text-lg text-gp-black/60">Deshalb begleiten wir den Prozess als Team.</p>
     </div>
 
-    <div class="mt-14 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 reveal">
+    <div class="mt-14 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10 md:gap-x-8 reveal">
       {
         team.map((person) => (
           <div>
@@ -32,6 +57,8 @@ const team = [
               />
             </div>
             <p class="mt-3 font-medium text-gp-black text-[15px]">{person.name}</p>
+            <p class="text-gp-red text-[12px] font-medium uppercase tracking-wide mt-0.5">{person.role}</p>
+            <p class="mt-2 text-gp-black/60 text-[13px] leading-relaxed">{person.text}</p>
           </div>
         ))
       }
