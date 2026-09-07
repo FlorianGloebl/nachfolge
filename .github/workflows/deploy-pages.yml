@@ -25,6 +25,13 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          # Only needed while the site is served from
+          # https://<user>.github.io/nachfolge/ (no custom domain / CNAME yet).
+          # Once the nachfolge.g-u-p.de custom domain is live, remove this line
+          # (or set it to "/") — see astro.config.mjs.
+          BASE_PATH: /nachfolge/
+      - run: touch dist/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
