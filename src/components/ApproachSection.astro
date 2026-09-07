@@ -54,7 +54,7 @@ const pillars = [
           </p>
         </div>
       </div>
-      <div class="aspect-4/3 overflow-hidden">
+      <div class="aspect-4/3 overflow-hidden img-zoom">
         <img
           src={`${base}images/content/verstehen-vor-veraendern.webp`}
           alt="Erfahrener Facharbeiter erklärt einem jüngeren Kollegen einen Arbeitsschritt an der Werkbank"
@@ -67,15 +67,15 @@ const pillars = [
     </div>
   </div>
 
-  <div class="bg-gp-black text-white mt-24 md:mt-32 py-20 md:py-28">
-    <div class="mx-auto max-w-3xl px-5 sm:px-8 reveal">
+  <div class="bg-gp-black text-white mt-24 md:mt-32 py-20 md:py-28 grain">
+    <div class="mx-auto max-w-3xl px-5 sm:px-8 reveal quote-mark">
       <p class="text-white/50 text-sm uppercase tracking-wide mb-6">
         Die zentrale Frage einer erfolgreichen Nachfolge
       </p>
       <p class="font-display text-2xl md:text-3xl lg:text-[34px] leading-[1.4] text-white/95">
-        „Kann das Unternehmen seine Leistungsfähigkeit auch ohne den bisherigen
+        Kann das Unternehmen seine Leistungsfähigkeit auch ohne den bisherigen
         Unternehmer erhalten – und gleichzeitig die Fähigkeit entwickeln, sich unter neuer
-        Führung weiterzuentwickeln?“
+        Führung weiterzuentwickeln?
       </p>
       <p class="mt-8 text-white/60">Genau hier setzt unsere Begleitung an.</p>
     </div>
@@ -91,10 +91,17 @@ const pillars = [
     <div class="mt-14 grid md:grid-cols-3 gap-px bg-gp-black/10 border border-gp-black/10 reveal">
       {
         pillars.map((p) => (
-          <div class="bg-gp-white p-8 md:p-10 min-h-[420px] flex flex-col">
-            <p.icon class="w-8 h-8 text-gp-red" strokeWidth={1.5} />
-            <span class="mt-6 text-sm text-gp-black/40 font-medium">{p.label}</span>
-            <h3 class="font-display font-bold text-2xl md:text-[28px] text-gp-black mt-2 mb-6">
+          <div class="group relative bg-gp-white p-8 md:p-10 min-h-[420px] flex flex-col overflow-hidden">
+            <span
+              class="pointer-events-none absolute -top-6 -right-2 font-display font-extrabold text-gp-black/[0.05] leading-none select-none transition-colors duration-500 group-hover:text-gp-red/[0.08]"
+              style="font-size:9rem"
+              aria-hidden="true"
+            >
+              {p.label}
+            </span>
+            <p.icon class="relative w-8 h-8 text-gp-red" strokeWidth={1.5} />
+            <span class="relative mt-6 text-sm text-gp-black/40 font-medium">{p.label}</span>
+            <h3 class="relative font-display font-bold text-2xl md:text-[28px] text-gp-black mt-2 mb-6">
               {p.title}
             </h3>
             <ul class="space-y-2.5 text-gp-black/65 text-[15px] mt-auto">

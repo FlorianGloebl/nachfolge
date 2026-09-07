@@ -28,8 +28,8 @@ const sides = [
   <div class="grid md:grid-cols-2">
     {
       sides.map((side) => (
-        <div class={`reveal ${side.dark ? 'bg-gp-black text-white' : 'bg-gp-warm-white text-gp-black'}`}>
-          <div class="aspect-4/3 overflow-hidden">
+        <div class={`reveal ${side.dark ? 'bg-gp-black text-white grain' : 'bg-gp-warm-white text-gp-black'}`}>
+          <div class="aspect-4/3 overflow-hidden img-zoom">
             <img
               src={`${base}${side.image}`}
               alt={side.alt}
