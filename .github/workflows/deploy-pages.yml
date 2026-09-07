@@ -24,13 +24,13 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # No BASE_PATH override: the site now targets the custom domain
+      # www.nachfolge.g-u-p.de (served from "/"), configured via the
+      # public/CNAME file — see astro.config.mjs. If DNS for that domain
+      # isn't live yet, the site is temporarily unreachable at both the
+      # custom domain and the old https://<user>.github.io/nachfolge/ path
+      # (which now expects assets at "/", not "/nachfolge/") until it is.
       - run: npm run build
-        env:
-          # Only needed while the site is served from
-          # https://<user>.github.io/nachfolge/ (no custom domain / CNAME yet).
-          # Once the nachfolge.g-u-p.de custom domain is live, remove this line
-          # (or set it to "/") — see astro.config.mjs.
-          BASE_PATH: /nachfolge/
       - run: touch dist/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
