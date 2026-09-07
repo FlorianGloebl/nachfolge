@@ -1,10 +1,11 @@
 ---
+const base = import.meta.env.BASE_URL;
 const sides = [
   {
     label: 'Für den Übergeber',
     title: 'Loslassen, ohne das Lebenswerk aus der Hand zu geben.',
     dark: false,
-    image: '/images/content/uebergeber-modern.webp',
+    image: 'images/content/uebergeber-modern.webp',
     alt: 'Erfahrener Unternehmer im Gespräch mit einem Kollegen in der Produktion',
     lead: 'Formale Verantwortung ist am Tag der Übergabe geregelt. Die eigene Rolle danach nicht.',
     text: 'Was bleibt von der eigenen Rolle, wenn die Verantwortung nicht mehr täglich gebraucht wird? Übergeber stehen vor der Aufgabe, Sicherheit abzugeben, ohne sich selbst zu verlieren – und eine persönliche Perspektive für die Zeit nach der Übergabe zu entwickeln.',
@@ -14,7 +15,7 @@ const sides = [
     label: 'Für den Nachfolger',
     title: 'Übernehmen, ohne alles umzukrempeln.',
     dark: true,
-    image: '/images/content/nachfolger-modern.webp',
+    image: 'images/content/nachfolger-modern.webp',
     alt: 'Zwei Kolleginnen und Kollegen im Austausch an einer modernen Fertigungsstation',
     lead: 'Formale Verantwortung ist am Tag der Übergabe geregelt. Vertrauen nicht.',
     text: 'Mitarbeitende, Führungskräfte und Kunden beobachten zunächst, ob die neue Führung fortsetzt, was das Unternehmen ausgemacht hat – und ob sie versteht, bevor sie verändert. Interner Widerstand hat dabei selten mit Ablehnung zu tun, sondern mit Sorge um Bewährtes und einer noch unklaren eigenen Rolle.',
@@ -30,7 +31,7 @@ const sides = [
         <div class={`reveal ${side.dark ? 'bg-gp-black text-white' : 'bg-gp-warm-white text-gp-black'}`}>
           <div class="aspect-4/3 overflow-hidden">
             <img
-              src={side.image}
+              src={`${base}${side.image}`}
               alt={side.alt}
               class="h-full w-full object-cover"
               loading="lazy"

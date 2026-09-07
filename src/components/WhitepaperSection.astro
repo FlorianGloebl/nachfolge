@@ -1,5 +1,6 @@
 ---
 import { FileDown, ShieldCheck } from '@lucide/astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <section class="bg-gp-charcoal text-white py-24 md:py-32" id="wissen">
@@ -46,7 +47,7 @@ import { FileDown, ShieldCheck } from '@lucide/astro';
             />
             <span>
               Ich möchte den Nachfolge-Check per E-Mail erhalten und bin mit der
-              Verarbeitung meiner Daten gemäß <a href="/datenschutz/" class="underline hover:text-white">Datenschutzerklärung</a> einverstanden.
+              Verarbeitung meiner Daten gemäß <a href={`${base}datenschutz/`} class="underline hover:text-white">Datenschutzerklärung</a> einverstanden.
             </span>
           </label>
 

@@ -1,11 +1,12 @@
 ---
 const year = new Date().getFullYear();
+const base = import.meta.env.BASE_URL;
 ---
 
 <footer class="bg-gp-black text-white/70">
   <div class="mx-auto max-w-(--container-content) px-5 sm:px-8 py-14 grid gap-10 md:grid-cols-3">
     <div>
-      <img src="/logos/gundp-logo.svg" alt="G&amp;P Management Consultants" class="h-7 w-auto brightness-0 invert mb-4" />
+      <img src={`${base}logos/gundp-logo.svg`} alt="G&amp;P Management Consultants" class="h-7 w-auto brightness-0 invert mb-4" />
       <p class="text-sm leading-relaxed max-w-xs">
         Ehrlich. Direkt. Wirksam. G&amp;P begleitet Unternehmensnachfolgen im Mittelstand –
         von der Analyse bis zur erfolgreichen Übergabe.
@@ -28,8 +29,8 @@ const year = new Date().getFullYear();
     <div class="text-sm">
       <div class="text-white font-medium mb-3">Rechtliches</div>
       <ul class="space-y-2">
-        <li><a href="/impressum/" class="hover:text-white transition-colors">Impressum</a></li>
-        <li><a href="/datenschutz/" class="hover:text-white transition-colors">Datenschutz</a></li>
+        <li><a href={`${base}impressum/`} class="hover:text-white transition-colors">Impressum</a></li>
+        <li><a href={`${base}datenschutz/`} class="hover:text-white transition-colors">Datenschutz</a></li>
       </ul>
       <div class="mt-6 flex gap-4">
         <a href="https://www.linkedin.com/company/g-u-p/" aria-label="G&amp;P auf LinkedIn" class="hover:text-white transition-colors">LinkedIn</a>

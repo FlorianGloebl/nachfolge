@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL;
 const items = [
   'Gespräche mit Eigentümern',
   'Interviews mit Führungskräften',
@@ -16,7 +17,7 @@ const items = [
     <div class="grid lg:grid-cols-2 gap-14 items-center">
       <div class="order-2 lg:order-1 aspect-3/4 max-h-[560px] overflow-hidden reveal">
         <img
-          src="/images/content/produktion-weit.webp"
+          src={`${base}images/content/produktion-weit.webp`}
           alt="Moderne Produktionshalle mit Kranbahn, in der Wertschöpfung entsteht"
           class="h-full w-full object-cover"
           loading="lazy"

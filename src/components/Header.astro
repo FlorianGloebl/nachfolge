@@ -1,4 +1,6 @@
 ---
+const base = import.meta.env.BASE_URL;
+
 const navItems = [
   { href: '#nachfolge', label: 'Nachfolge' },
   { href: '#ansatz', label: 'Unser Ansatz' },
@@ -14,9 +16,9 @@ const navItems = [
   class="sticky top-0 z-40 bg-gp-black/95 backdrop-blur supports-[backdrop-filter]:bg-gp-black/90 border-b border-white/10"
 >
   <div class="mx-auto max-w-(--container-content) px-5 sm:px-8 h-16 md:h-20 flex items-center justify-between gap-4">
-    <a href="/" class="flex items-center gap-2 shrink-0" aria-label="G&amp;P Management Consultants – Startseite">
+    <a href={base} class="flex items-center gap-2 shrink-0" aria-label="G&amp;P Management Consultants – Startseite">
       <img
-        src="/logos/gundp-logo.svg"
+        src={`${base}logos/gundp-logo.svg`}
         alt="G&amp;P Management Consultants"
         class="h-7 md:h-8 w-auto brightness-0 invert"
       />
