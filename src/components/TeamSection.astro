@@ -1,0 +1,45 @@
+---
+const team = [
+  { name: 'Florian Glöbl', image: '/images/team/florian-gloebl.webp' },
+  { name: 'Simone Heigl', image: '/images/team/simone-heigl.webp' },
+  { name: 'Kim Flores', image: '/images/team/kim-flores.webp' },
+  { name: 'Michael Kasteleiner', image: '/images/team/michael-kasteleiner.webp' },
+  { name: 'Susanne Stroth', image: '/images/team/susanne-stroet.webp' },
+];
+---
+
+<section class="bg-gp-warm-white py-24 md:py-32" id="team">
+  <div class="mx-auto max-w-(--container-content) px-5 sm:px-8">
+    <div class="max-w-2xl reveal">
+      <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-gp-black">
+        Nachfolge braucht mehr als eine Perspektive.
+      </h2>
+      <p class="mt-4 text-lg text-gp-black/60">Deshalb begleiten wir den Prozess als Team.</p>
+    </div>
+
+    <div class="mt-14 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 reveal">
+      {
+        team.map((person) => (
+          <div>
+            <div class="aspect-[4/5] overflow-hidden bg-gp-grey-light">
+              <img
+                src={person.image}
+                alt={person.name}
+                class="h-full w-full object-cover grayscale-[15%]"
+                loading="lazy"
+                width="700"
+                height="860"
+              />
+            </div>
+            <p class="mt-3 font-medium text-gp-black text-[15px]">{person.name}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mt-14 max-w-2xl text-gp-black/70 leading-relaxed reveal">
+      Wir begleiten Nachfolgeprozesse gemeinsam und bringen dabei unterschiedliche
+      Perspektiven aus Beratung, Führung, Organisation und Veränderung zusammen.
+    </p>
+  </div>
+</section>

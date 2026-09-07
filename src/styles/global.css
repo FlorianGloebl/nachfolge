@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+/* Self-hosted fonts (no request to Google servers — DSGVO-konform) */
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/manrope/500.css";
+@import "@fontsource/manrope/700.css";
+@import "@fontsource/manrope/800.css";
+
+@theme {
+  --color-gp-red: #b70c34;
+  --color-gp-red-dark: #8f0929;
+  --color-gp-black: #101010;
+  --color-gp-charcoal: #1a1a1a;
+  --color-gp-warm-white: #f7f6f3;
+  --color-gp-white: #ffffff;
+  --color-gp-grey-light: #ecebea;
+  --color-gp-grey-mid: #77736f;
+
+  --font-display: "Manrope", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --container-content: 1280px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    background: var(--color-gp-warm-white);
+    color: var(--color-gp-black);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--color-gp-red);
+    color: var(--color-gp-white);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gp-red);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}

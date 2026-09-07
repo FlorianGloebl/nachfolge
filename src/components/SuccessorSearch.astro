@@ -1,0 +1,68 @@
+---
+const steps = [
+  { n: '01', title: 'Unternehmen verstehen' },
+  { n: '02', title: 'Anforderungsprofil entwickeln' },
+  { n: '03', title: 'Kandidaten identifizieren' },
+  { n: '04', title: 'Gespräche & Auswahl begleiten' },
+  { n: '05', title: 'Entscheidung vorbereiten' },
+];
+
+const criteria = [
+  'Persönlichkeit',
+  'Führung',
+  'Werteverständnis',
+  'Umgang mit bestehender Mannschaft',
+  'Zukunftsbild',
+  'Unternehmerische Eignung',
+  'Kulturelle Passung',
+];
+---
+
+<section class="bg-gp-charcoal text-white py-24 md:py-32" id="nachfolger-finden">
+  <div class="mx-auto max-w-(--container-content) px-5 sm:px-8">
+    <div class="max-w-2xl reveal">
+      <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-tight">
+        Wenn der Nachfolger noch nicht feststeht, beginnt unsere Arbeit früher.
+      </h2>
+      <p class="mt-6 text-lg text-white/70 leading-relaxed">
+        Gemeinsam entwickeln wir ein belastbares Anforderungsprofil: Welche
+        unternehmerische Persönlichkeit braucht dieses Unternehmen? Welche Werte,
+        Führungsqualitäten und Erfahrungen sind entscheidend? Anschließend identifizieren
+        und qualifizieren wir passende Kandidatinnen und Kandidaten und begleiten den
+        Auswahlprozess bis zur Entscheidung.
+      </p>
+    </div>
+
+    <div class="mt-16 grid sm:grid-cols-5 gap-6 reveal">
+      {
+        steps.map((s) => (
+          <div class="border-t border-white/20 pt-5">
+            <span class="text-gp-red font-display font-bold text-sm">{s.n}</span>
+            <p class="mt-3 text-[15px] text-white/85 leading-snug">{s.title}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-20 grid lg:grid-cols-2 gap-12 items-start reveal">
+      <div class="bg-white/5 border border-white/10 p-8 md:p-10">
+        <p class="font-display text-xl md:text-2xl leading-snug text-white">
+          „Der höchste Kaufpreis ist nicht automatisch die beste Nachfolge.“
+        </p>
+      </div>
+      <div>
+        <p class="text-white/70 mb-5">
+          Nicht nur fachliche Qualifikation betrachten, sondern auch:
+        </p>
+        <ul class="grid grid-cols-2 gap-x-6 gap-y-2 text-[15px] text-white/85">
+          {criteria.map((c) => <li class="flex gap-2"><span class="text-gp-red">–</span>{c}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <p class="mt-16 text-white/50 max-w-xl text-sm reveal">
+      G&amp;P kann die Suche selbst übernehmen und greift dabei auf ein großes,
+      belastbares Netzwerk zurück.
+    </p>
+  </div>
+</section>

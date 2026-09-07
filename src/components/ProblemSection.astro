@@ -1,0 +1,90 @@
+---
+const questions = [
+  'Wer übernimmt wirklich Verantwortung?',
+  'Kann der bisherige Unternehmer loslassen?',
+  'Akzeptiert die Mannschaft die neue Führung?',
+  'Ist das Unternehmen überhaupt nachfolgefähig?',
+  'Was passiert, wenn noch kein geeigneter Nachfolger vorhanden ist?',
+  'Sind Eigentum, Geschäftsführung und operative Verantwortung klar getrennt?',
+  'Welche Rolle übernimmt der bisherige Unternehmer nach der Übergabe?',
+  'Wissen Mitarbeitende, was sich verändert und was erhalten bleibt?',
+];
+
+const warnings = [
+  {
+    title: 'Alles läuft nur, solange der Chef im Haus ist',
+    text: 'Wichtige Entscheidungen, Preise oder Freigaben laufen faktisch immer noch über eine Person.',
+  },
+  {
+    title: 'Kundenbeziehungen hängen an Einzelpersonen',
+    text: 'Zentrale Kunden- oder Lieferantenkontakte sind nirgends dokumentiert außer im Kopf des Inhabers.',
+  },
+  {
+    title: 'Führungskräfte warten auf Ansagen',
+    text: 'Die zweite Ebene trifft kaum eigene Entscheidungen und agiert nicht ohne Rückversicherung.',
+  },
+  {
+    title: 'Ein Nachfolger ist benannt, aber nicht wirklich akzeptiert',
+    text: 'Formal ist die Rolle geklärt – im Alltag wird die neue Führung von Team oder Kunden noch nicht getragen.',
+  },
+  {
+    title: 'Zahlen, Prozesse und Verträge existieren nur implizit',
+    text: 'Was tatsächlich zu tun ist, steht in keinem System – sondern lebt in der Erfahrung einzelner Personen.',
+  },
+  {
+    title: 'Kaufpreis und Finanzierung wurden nie ernsthaft durchgerechnet',
+    text: 'Es gibt eine Wunschvorstellung zum Wert des Unternehmens, aber kein tragfähiges Finanzierungskonzept.',
+  },
+];
+---
+
+<section class="bg-gp-warm-white py-24 md:py-32" id="problem">
+  <div class="mx-auto max-w-(--container-content) px-5 sm:px-8">
+    <div class="max-w-2xl reveal">
+      <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-gp-black">
+        Formal geregelt heißt noch lange nicht erfolgreich übergeben.
+      </h2>
+      <p class="mt-6 text-lg text-gp-black/70 leading-relaxed">
+        Bei Unternehmensnachfolge wird häufig zuerst über Anteile, Steuern, Kaufpreis,
+        Erbrecht und Verträge gesprochen. Das ist notwendig, reicht aber nicht. G&amp;P
+        fokussiert zusätzlich auf Rollen, Erwartungen, Führung, Akzeptanz, Kommunikation,
+        Organisation und Übergang.
+      </p>
+    </div>
+
+    <div class="mt-14 grid sm:grid-cols-2 gap-x-10 gap-y-6 reveal">
+      {
+        questions.map((q) => (
+          <div class="flex gap-4 py-4 border-t border-gp-black/10">
+            <span class="text-gp-red font-display font-bold text-sm mt-1">?</span>
+            <p class="text-gp-black/85 text-base md:text-[17px] leading-snug">{q}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-24 reveal">
+      <h3 class="font-display font-bold text-2xl md:text-3xl text-gp-black max-w-xl">
+        Woran Sie erkennen, dass Ihre Nachfolge noch nicht ausreichend vorbereitet ist
+      </h3>
+      <p class="mt-4 text-gp-black/60 max-w-xl">
+        Sechs Signale, die in der Praxis immer wieder auftauchen – oft, ohne dass sie als
+        solche erkannt werden.
+      </p>
+
+      <div class="mt-10 grid md:grid-cols-2 border-t border-gp-black/10">
+        {
+          warnings.map((w) => (
+            <div class="flex gap-4 py-6 border-b border-gp-black/10 md:odd:border-r md:odd:pr-10 md:even:pl-10">
+              <span class="mt-2 h-2 w-2 rounded-full bg-gp-red shrink-0" />
+              <div>
+                <h4 class="font-semibold text-gp-black text-[15.5px] mb-1.5">{w.title}</h4>
+                <p class="text-sm text-gp-black/60 leading-relaxed">{w.text}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+---
+const items = [
+  'Gespräche mit Eigentümern',
+  'Interviews mit Führungskräften',
+  'Produktion erleben',
+  'Organisation und Entscheidungswege verstehen',
+  'Kultur und informelle Regeln erkennen',
+  'Abhängigkeiten sichtbar machen',
+  'Schlüsselwissen erkennen',
+  'Bestehende Stärken respektieren',
+];
+---
+
+<section class="bg-gp-warm-white py-24 md:py-32">
+  <div class="mx-auto max-w-(--container-content) px-5 sm:px-8">
+    <div class="grid lg:grid-cols-2 gap-14 items-center">
+      <div class="order-2 lg:order-1 aspect-3/4 max-h-[560px] overflow-hidden reveal">
+        <img
+          src="/images/content/stallgeruch.webp"
+          alt="Erfahrener Handwerker und junger Kollege arbeiten gemeinsam an einer Maschine in der Werkstatt"
+          class="h-full w-full object-cover"
+          loading="lazy"
+          width="1400"
+          height="2100"
+        />
+      </div>
+      <div class="order-1 lg:order-2 reveal">
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-gp-black">
+          Wir beginnen nicht mit PowerPoint.
+        </h2>
+        <p class="mt-6 text-lg text-gp-black/70 leading-relaxed">
+          Bevor wir über Nachfolger, Rollen und Strukturen sprechen, wollen wir das
+          Unternehmen verstehen. Deshalb gehen wir dorthin, wo Wertschöpfung entsteht: ins
+          Unternehmen, in die Produktion und zu den Menschen.
+        </p>
+        <ul class="mt-10 grid sm:grid-cols-2 gap-x-8 gap-y-3 text-[15px] text-gp-black/75">
+          {items.map((item) => <li class="flex gap-2.5"><span class="text-gp-red">–</span>{item}</li>)}
+        </ul>
+        <p class="mt-8 text-gp-black/60 italic">Verstehen, bevor verändert wird.</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,38 @@
+---
+import { Mail, Phone } from '@lucide/astro';
+---
+
+<section class="bg-gp-black text-white py-24 md:py-36" id="kontakt">
+  <div class="mx-auto max-w-(--container-content) px-5 sm:px-8">
+    <div class="grid lg:grid-cols-[1.4fr_1fr] gap-16 items-end">
+      <div class="reveal">
+        <h2 class="font-display font-bold text-3xl md:text-5xl lg:text-[56px] leading-[1.1] max-w-xl">
+          Ihre Nachfolge beginnt nicht mit einem Vertrag. Sondern mit Klarheit.
+        </h2>
+        <p class="mt-7 text-lg text-white/70 max-w-md">
+          Sprechen wir darüber, wie Ihr Unternehmen auch nach Ihnen erfolgreich bleibt.
+        </p>
+        <a
+          href="mailto:info@g-u-p.de?subject=Anfrage%20Unternehmensnachfolge"
+          class="mt-9 inline-flex items-center justify-center bg-gp-red hover:bg-gp-red-dark text-white font-medium px-8 py-4 transition-colors"
+        >
+          Erstgespräch vereinbaren
+        </a>
+      </div>
+
+      <div class="reveal border-t border-white/15 pt-8 lg:border-t-0 lg:pt-0">
+        <p class="font-display font-semibold text-lg mb-4">Florian Glöbl</p>
+        <ul class="space-y-3 text-white/70">
+          <li class="flex items-center gap-3">
+            <Phone class="w-4 h-4 text-gp-red shrink-0" strokeWidth={1.5} />
+            <a href="tel:+491721718875" class="hover:text-white transition-colors">+49 (0) 172 1718875</a>
+          </li>
+          <li class="flex items-center gap-3">
+            <Mail class="w-4 h-4 text-gp-red shrink-0" strokeWidth={1.5} />
+            <a href="mailto:info@g-u-p.de" class="hover:text-white transition-colors">info@g-u-p.de</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

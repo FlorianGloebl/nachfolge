@@ -1,0 +1,60 @@
+---
+const sides = [
+  {
+    label: 'Für den Übergeber',
+    title: 'Loslassen, ohne das Lebenswerk aus der Hand zu geben.',
+    dark: false,
+    items: [
+      'Rolle danach',
+      'Sicherheit',
+      'Verantwortung abgeben',
+      'Mitarbeitende schützen',
+      'Lebenswerk erhalten',
+      'Persönliche Perspektive nach der Übergabe',
+      'Erwartungen und Ängste offen ansprechen',
+    ],
+  },
+  {
+    label: 'Für den Nachfolger',
+    title: 'Übernehmen, ohne alles umzukrempeln.',
+    dark: true,
+    items: [
+      'Akzeptanz gewinnen',
+      'Unternehmen verstehen',
+      'Führungsmannschaft mitnehmen',
+      'Eigene Rolle finden',
+      'Verantwortung übernehmen',
+      'Entscheidungen treffen',
+      'Eigene Zukunftsidee entwickeln',
+      'Respektvoll mit dem Bestehenden umgehen',
+    ],
+  },
+];
+---
+
+<section class="bg-gp-white">
+  <div class="grid md:grid-cols-2">
+    {
+      sides.map((side) => (
+        <div class={`px-5 sm:px-8 lg:px-14 py-20 md:py-28 reveal ${side.dark ? 'bg-gp-black text-white' : 'bg-gp-warm-white text-gp-black'}`}>
+          <div class={`max-w-md mx-auto ${side.dark ? 'md:mr-0 md:ml-auto' : 'md:ml-0 md:mr-auto'}`}>
+            <p class="text-gp-red text-sm font-medium uppercase tracking-wide mb-5">{side.label}</p>
+            <h3 class="font-display font-bold text-2xl md:text-[28px] leading-snug mb-8">{side.title}</h3>
+            <ul class="space-y-3">
+              {side.items.map((item) => (
+                <li
+                  class={`flex gap-2.5 pt-3 border-t text-[15px] leading-snug first:border-none first:pt-0 ${
+                    side.dark ? 'border-white/15 text-white/75' : 'border-gp-black/10 text-gp-black/70'
+                  }`}
+                >
+                  <span class="text-gp-red shrink-0">–</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,109 @@
+---
+import { Factory, Users, ArrowLeftRight } from '@lucide/astro';
+
+const pillars = [
+  {
+    icon: Factory,
+    label: '01',
+    title: 'Unternehmen',
+    items: ['Geschäftsmodell', 'Organisation', 'Prozesse', 'Führung', 'Wissen', 'Abhängigkeiten', 'Entscheidungswege', 'Informelle Erfolgsmuster'],
+  },
+  {
+    icon: Users,
+    label: '02',
+    title: 'Menschen',
+    items: ['Erwartungen', 'Rollen', 'Ängste', 'Motive', 'Vertrauen', 'Akzeptanz', 'Kommunikation', 'Konflikte'],
+  },
+  {
+    icon: ArrowLeftRight,
+    label: '03',
+    title: 'Übergang',
+    items: [
+      'Verantwortung schrittweise übertragen',
+      'Klare Entscheidungsbefugnisse',
+      'Loslassen',
+      'Einarbeitung',
+      'Kommunikation',
+      'Neue Führung stabilisieren',
+      'Organisation weiterentwickeln',
+    ],
+  },
+];
+---
+
+<section class="bg-gp-white py-24 md:py-32" id="ansatz">
+  <div class="mx-auto max-w-(--container-content) px-5 sm:px-8">
+    <div class="grid lg:grid-cols-2 gap-14 items-center reveal">
+      <div>
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-gp-black">
+          Verstehen vor Verändern.
+        </h2>
+        <div class="mt-6 space-y-4 text-lg text-gp-black/70 leading-relaxed">
+          <p>
+            Bevor sich etwas verändern darf, muss verstanden sein, was das Unternehmen
+            eigentlich erfolgreich macht. Nachfolgerinnen und Nachfolger stehen vor der
+            Aufgabe, die <strong class="text-gp-black font-medium">informellen Erfolgsmuster</strong> ihres
+            Unternehmens zu erkennen – die ungeschriebenen Routinen, Entscheidungswege und
+            Beziehungen, die selten in einem Organigramm stehen, aber die eigentliche
+            Kernkompetenz tragen.
+          </p>
+          <p>
+            Wer sie beschädigt, bevor er sie verstanden hat, riskiert genau die
+            Leistungsfähigkeit, die eigentlich erhalten werden soll.
+          </p>
+        </div>
+      </div>
+      <div class="aspect-4/3 overflow-hidden">
+        <img
+          src="/images/content/verstehen-vor-veraendern.webp"
+          alt="Erfahrener Facharbeiter erklärt einem jüngeren Kollegen einen Arbeitsschritt an der Werkbank"
+          class="h-full w-full object-cover"
+          loading="lazy"
+          width="1600"
+          height="1067"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-gp-black text-white mt-24 md:mt-32 py-20 md:py-28">
+    <div class="mx-auto max-w-3xl px-5 sm:px-8 reveal">
+      <p class="text-white/50 text-sm uppercase tracking-wide mb-6">
+        Die zentrale Frage einer erfolgreichen Nachfolge
+      </p>
+      <p class="font-display text-2xl md:text-3xl lg:text-[34px] leading-[1.4] text-white/95">
+        „Kann das Unternehmen seine Leistungsfähigkeit auch ohne den bisherigen
+        Unternehmer erhalten – und gleichzeitig die Fähigkeit entwickeln, sich unter neuer
+        Führung weiterzuentwickeln?“
+      </p>
+      <p class="mt-8 text-white/60">Genau hier setzt unsere Begleitung an.</p>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-(--container-content) px-5 sm:px-8 mt-24 md:mt-32">
+    <div class="max-w-2xl reveal">
+      <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-gp-black">
+        Eine erfolgreiche Nachfolge braucht drei Dinge.
+      </h2>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-3 gap-px bg-gp-black/10 border border-gp-black/10 reveal">
+      {
+        pillars.map((p) => (
+          <div class="bg-gp-white p-8 md:p-10 min-h-[420px] flex flex-col">
+            <p.icon class="w-8 h-8 text-gp-red" strokeWidth={1.5} />
+            <span class="mt-6 text-sm text-gp-black/40 font-medium">{p.label}</span>
+            <h3 class="font-display font-bold text-2xl md:text-[28px] text-gp-black mt-2 mb-6">
+              {p.title}
+            </h3>
+            <ul class="space-y-2.5 text-gp-black/65 text-[15px] mt-auto">
+              {p.items.map((item) => (
+                <li class="border-t border-gp-black/10 pt-2.5 first:border-none first:pt-0">{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

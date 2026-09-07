@@ -1,0 +1,90 @@
+---
+const phases = [
+  {
+    n: '01',
+    title: 'Ausgangslage verstehen',
+    items: ['Unternehmen', 'Eigentümer', 'Familie', 'Führung', 'Organisation', 'Kultur', 'Erfolgsmuster'],
+  },
+  {
+    n: '02',
+    title: 'Ziel und Nachfolgemodell klären',
+    items: ['Familiennachfolge', 'Interne Führung', 'MBO', 'MBI', 'Externer Verkauf', 'Fremdgeschäftsführung', 'Mischformen'],
+  },
+  {
+    n: '03',
+    title: 'Nachfolgerprofil & Suche',
+    items: ['Anforderungen', 'Kandidaten', 'Ansprache', 'Auswahl', 'Passung'],
+  },
+  {
+    n: '04',
+    title: 'Unternehmen nachfolgefähig machen',
+    items: ['Rollen', 'Prozesse', 'Zweite Führungsebene', 'Wissen', 'Entscheidungswege', 'Unternehmerabhängigkeit reduzieren'],
+  },
+  {
+    n: '05',
+    title: 'Übergabe gestalten',
+    items: ['Kommunikation', 'Verantwortungsübergang', 'Rollenklärung', 'Loslassen', 'Akzeptanz', 'Einarbeitung'],
+  },
+  {
+    n: '06',
+    title: 'Neue Führung stabilisieren',
+    items: ['Coaching / Sparring', 'Führungsmannschaft mitnehmen', 'Akzeptanz aufbauen', 'Zusammenarbeit gestalten', 'Führungsfragen moderieren'],
+  },
+  {
+    n: '07',
+    title: 'Weiterentwicklung',
+    items: ['Strategie', 'Organisation', 'Führung', 'Operative Verbesserung', 'Organisationsentwicklung'],
+  },
+];
+
+const maSteps = ['Bewertung', 'M&A-Prozess', 'Due Diligence', 'Verhandlung', 'Signing', 'Closing', 'Integration'];
+---
+
+<section class="bg-gp-warm-white py-24 md:py-32" id="ablauf">
+  <div class="mx-auto max-w-(--container-content) px-5 sm:px-8">
+    <div class="max-w-2xl reveal">
+      <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-gp-black">
+        Der Weg zu einer tragfähigen Nachfolge
+      </h2>
+      <p class="mt-6 text-lg text-gp-black/70 leading-relaxed">
+        Sieben Phasen, in denen Verstehen vor Verändern kommt.
+      </p>
+    </div>
+
+    <ol class="mt-16 relative">
+      {
+        phases.map((phase, i) => (
+          <li class="relative pl-14 md:pl-20 pb-14 last:pb-0 border-l border-gp-black/15 ml-4 md:ml-6 reveal">
+            <span class="absolute -left-4 md:-left-6 top-0 -translate-x-1/2 flex items-center justify-center w-9 h-9 md:w-11 md:h-11 rounded-full bg-gp-warm-white border-2 border-gp-black text-gp-black font-display font-bold text-sm">
+              {i + 1}
+            </span>
+            <h3 class="font-display font-bold text-xl md:text-2xl text-gp-black mb-3">{phase.title}</h3>
+            <ul class="flex flex-wrap gap-2">
+              {phase.items.map((item) => (
+                <li class="text-[13px] text-gp-black/70 bg-gp-grey-light px-3 py-1.5 rounded-full">{item}</li>
+              ))}
+            </ul>
+
+            {i === 1 && (
+              <div class="mt-6 border border-gp-red/40 bg-gp-white p-6 max-w-xl">
+                <span class="inline-block text-xs font-semibold text-white bg-gp-red px-2.5 py-1 rounded-full mb-3">
+                  Bei Verkauf / Beteiligung
+                </span>
+                <p class="text-sm text-gp-black/70 mb-4">
+                  Je nach Mandat koordinieren wir hierfür weitere Spezialisten aus unserem
+                  Netzwerk bzw. begleiten den M&amp;A-Prozess gemeinsam mit erfahrenen
+                  Partnern.
+                </p>
+                <ul class="flex flex-wrap gap-2">
+                  {maSteps.map((step) => (
+                    <li class="text-[13px] text-gp-black bg-gp-grey-light px-3 py-1.5 rounded-full">{step}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
