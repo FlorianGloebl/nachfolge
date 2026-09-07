@@ -1,0 +1,103 @@
+---
+const paths = [
+  {
+    label: 'Generationswechsel',
+    title: 'Nachfolge bleibt in der Familie',
+    text: 'Bleibt das Unternehmen ein Familienunternehmen, wirken zwei Systeme gleichzeitig: das Unternehmenssystem mit seiner wirtschaftlichen Logik und das Familiensystem mit seinen eigenen Regeln und Geschichten. Eine gelingende Nachfolge macht diese Wechselwirkung sichtbar und gestaltet bewusst, wo Familie und Unternehmen getrennt und wo sie verbunden bleiben.',
+  },
+  {
+    label: 'Fremdgeschäftsführung',
+    title: 'Führung wechselt, Eigentum bleibt in der Familie',
+    text: 'Übernimmt eine familienfremde Führungskraft die operative Verantwortung, bleibt die Eigentümerfamilie im Hintergrund präsent – als Gesellschafter, als Aufsichtsgremium, häufig auch als emotionale Referenz für die Belegschaft. Entscheidend ist ein klares Rollenverständnis zwischen Geschäftsführung und Eigentümern.',
+  },
+  {
+    label: 'Verkauf',
+    title: 'Wechsel zu einem neuen Eigentümer',
+    text: 'Wechselt das Unternehmen vollständig den Eigentümer, verändert sich mehr als die Person an der Spitze. Strategie, Kultur und Entscheidungslogik eines neuen Eigentümers treffen auf ein gewachsenes System. Die Aufgabe besteht darin, das Bewährte in die neue Struktur zu übersetzen – statt es im Übergang zu verlieren.',
+  },
+];
+---
+
+<section class="bg-gp-white py-24 md:py-32" id="nachfolgemodell">
+  <div class="mx-auto max-w-(--container-content) px-5 sm:px-8">
+    <div class="max-w-2xl reveal">
+      <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-gp-black">
+        Drei Wege – drei Dynamiken.
+      </h2>
+      <p class="mt-6 text-lg text-gp-black/70 leading-relaxed">
+        Wie der Unternehmer-Wechsel gelingt, hängt entscheidend davon ab, welchen Weg das
+        Unternehmen geht. Jeder Weg bringt sein eigenes Kräftefeld mit.
+      </p>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-3 gap-px bg-gp-black/10 border border-gp-black/10 reveal">
+      {
+        paths.map((p) => (
+          <div class="bg-gp-warm-white p-8 md:p-10">
+            <span class="text-gp-red font-display font-bold text-sm uppercase tracking-wide">{p.label}</span>
+            <h3 class="font-display font-bold text-xl text-gp-black mt-3 mb-4 leading-snug">{p.title}</h3>
+            <p class="text-gp-black/65 text-[15px] leading-relaxed">{p.text}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-20 md:mt-28 grid lg:grid-cols-[1.1fr_1fr] gap-14 items-center reveal">
+      <div>
+        <h3 class="font-display font-bold text-2xl md:text-3xl leading-snug text-gp-black mb-6">
+          Familie, Eigentum, Unternehmen: drei Systeme, drei Logiken.
+        </h3>
+        <div class="space-y-4 text-gp-black/70 leading-relaxed">
+          <p>
+            Beim Generationswechsel lässt sich die Dynamik mit dem <strong class="text-gp-black font-medium">Drei-Kreise-Modell</strong> aus
+            der Familienunternehmensforschung fassen: Familie, Eigentum und Unternehmen sind
+            drei eigenständige Systeme mit jeweils eigenen Spielregeln.
+          </p>
+          <p>
+            Das <strong class="text-gp-black font-medium">Familiensystem</strong> folgt einer Logik der Zugehörigkeit und
+            Fürsorge. Das <strong class="text-gp-black font-medium">Eigentümersystem</strong> folgt einer Logik von Kontrolle,
+            Haftung und Rendite. Das <strong class="text-gp-black font-medium">Unternehmenssystem</strong> folgt einer Logik von
+            Leistung und Wettbewerb. Jede Person kann in einem, zwei oder allen drei Kreisen
+            zugleich stehen.
+          </p>
+          <p>
+            Am voraussetzungsvollsten ist die Position in der Schnittmenge aller drei Kreise –
+            dort, wo Nachfolgerinnen und Nachfolger während der Übergabe meist stehen: zugleich
+            Familienmitglied, Gesellschafter und operativ Verantwortliche. Genau hier ist das
+            Risiko für Rollenkonflikte am größten.
+          </p>
+          <p>
+            Eine tragfähige Nachfolge klärt deshalb bewusst, welche Entscheidung in welchen
+            Kreis gehört – statt alles über eine einzelne Person laufen zu lassen.
+          </p>
+        </div>
+      </div>
+
+      <svg
+        viewBox="0 0 520 420"
+        class="w-full h-auto"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Drei-Kreise-Modell: Familie, Eigentum und Unternehmen überlappen sich, die Nachfolge steht in der gemeinsamen Schnittmenge."
+      >
+        <circle cx="260" cy="150" r="115" fill="#b70c34" fill-opacity="0.45" style="mix-blend-mode:multiply" />
+        <circle cx="205" cy="250" r="115" fill="#77736f" fill-opacity="0.45" style="mix-blend-mode:multiply" />
+        <circle cx="315" cy="250" r="115" fill="#101010" fill-opacity="0.45" style="mix-blend-mode:multiply" />
+        <circle cx="260" cy="150" r="115" fill="none" stroke="#8f0929" stroke-width="1" />
+        <circle cx="205" cy="250" r="115" fill="none" stroke="#5f5c56" stroke-width="1" />
+        <circle cx="315" cy="250" r="115" fill="none" stroke="#101010" stroke-width="1" />
+
+        <text x="260" y="70" text-anchor="middle" class="fill-gp-black font-display font-bold" style="font-size:15px">Familie</text>
+        <text x="260" y="88" text-anchor="middle" class="fill-gp-black/60" style="font-size:11.5px">Zugehörigkeit &amp; Fürsorge</text>
+
+        <text x="112" y="235" text-anchor="middle" class="fill-gp-black font-display font-bold" style="font-size:15px">Eigentum</text>
+        <text x="112" y="253" text-anchor="middle" class="fill-gp-black/60" style="font-size:11.5px">Kontrolle &amp; Rendite</text>
+
+        <text x="408" y="235" text-anchor="middle" class="fill-gp-black font-display font-bold" style="font-size:15px">Unternehmen</text>
+        <text x="408" y="253" text-anchor="middle" class="fill-gp-black/60" style="font-size:11.5px">Leistung &amp; Wettbewerb</text>
+
+        <text x="260" y="222" text-anchor="middle" class="fill-gp-warm-white font-display" style="font-style:italic; font-size:13px">Nachfolge</text>
+      </svg>
+    </div>
+  </div>
+</section>
