@@ -27,17 +27,19 @@ const items = [
       </div>
       <div class="order-1 lg:order-2 reveal">
         <h2 class="font-display font-bold text-[26px] md:text-4xl lg:text-5xl leading-tight text-gp-black">
-          Wir beginnen nicht mit PowerPoint.
+          Wir beginnen nicht mit schönen Folien.
         </h2>
         <p class="mt-6 text-lg text-gp-black/70 leading-relaxed">
           Bevor wir über Nachfolger, Rollen und Strukturen sprechen, wollen wir das
           Unternehmen verstehen. Deshalb gehen wir dorthin, wo Wertschöpfung entsteht: ins
           Unternehmen, in die Produktion und zu den Menschen.
         </p>
-        <ul class="mt-10 grid sm:grid-cols-2 gap-x-8 gap-y-3 text-[15px] text-gp-black/75">
-          {items.map((item) => <li class="flex gap-2.5"><span class="text-gp-red">–</span>{item}</li>)}
+        <ul class="mt-10 flex flex-wrap gap-2.5">
+          {items.map((item) => (
+            <li class="text-[13.5px] text-gp-black/75 bg-gp-grey-light px-3.5 py-2 rounded-full">{item}</li>
+          ))}
         </ul>
-        <p class="mt-8 text-gp-black/60 italic">Verstehen, bevor verändert wird.</p>
+        <p class="mt-8 text-gp-black/60 italic" style="font-family:var(--font-quote);">Verstehen, bevor verändert wird.</p>
       </div>
     </div>
   </div>

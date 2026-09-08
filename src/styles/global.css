@@ -8,6 +8,8 @@
 @import "@fontsource/manrope/500.css";
 @import "@fontsource/manrope/700.css";
 @import "@fontsource/manrope/800.css";
+@import "@fontsource/fraunces/500-italic.css";
+@import "@fontsource/fraunces/600-italic.css";
 
 @theme {
   --color-gp-red: #b70c34;
@@ -21,6 +23,7 @@
 
   --font-display: "Manrope", "Inter", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
+  --font-quote: "Fraunces", "Georgia", serif;
 
   --container-content: 1280px;
 }
@@ -118,6 +121,24 @@
     color: var(--color-gp-red);
     opacity: 0.25;
     pointer-events: none;
+  }
+
+  /* Infinite horizontal marquee for the hero trust line */
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+  .marquee-track {
+    animation: marquee 26s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
   }
 
   /* Fine film-grain texture for dark sections — adds depth without gradients/glass */

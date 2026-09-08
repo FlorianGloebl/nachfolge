@@ -1,6 +1,8 @@
 ---
 import { ArrowRight } from '@lucide/astro';
 const base = import.meta.env.BASE_URL;
+
+const trustWords = ['Organisation', 'Nachfolgersuche', 'Führung', 'Übergabe', 'M&A', 'Coaching'];
 ---
 
 <section class="relative bg-gp-black text-white overflow-hidden grain" id="nachfolge">
@@ -53,9 +55,21 @@ const base = import.meta.env.BASE_URL;
         </a>
       </div>
 
-      <p class="mt-12 text-sm text-white/50 tracking-wide reveal" style="transition-delay:320ms">
-        Organisation · Nachfolgersuche · Führung · Übergabe · M&amp;A · Coaching
-      </p>
+    </div>
+  </div>
+
+  <div class="relative mt-4 md:mt-8 pb-8 md:pb-10 border-t border-white/10 reveal" style="transition-delay:320ms">
+    <div class="marquee-mask overflow-hidden py-5">
+      <div class="marquee-track flex w-max gap-10 text-sm text-white/50 tracking-wide whitespace-nowrap">
+        {[...Array(2)].map(() => (
+          trustWords.map((w) => (
+            <span class="flex items-center gap-10">
+              {w}
+              <span class="text-gp-red">·</span>
+            </span>
+          ))
+        ))}
+      </div>
     </div>
   </div>
 </section>

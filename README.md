@@ -36,12 +36,13 @@ Push nach `main` löst automatisch `.github/workflows/deploy-pages.yml` aus:
 Build → Upload als Pages-Artefakt → Deploy. Repo-Einstellung **Pages → Source:
 GitHub Actions** muss einmalig aktiviert sein.
 
-- Aktuell (ohne eigene Domain) erreichbar unter `https://<user>.github.io/nachfolge/`
-  — dafür setzt der Workflow `BASE_PATH=/nachfolge/` beim Build.
-- Sobald die geplante Custom Domain **nachfolge.g-u-p.de** per DNS (CNAME auf
-  `<user>.github.io`) eingerichtet ist: `public/CNAME`-Datei mit dem Domainnamen
-  anlegen und die `BASE_PATH`-Zeile in `deploy-pages.yml` entfernen (dann läuft
-  `astro.config.mjs` mit `base: "/"`).
+- Live unter der Custom Domain **https://www.nachfolge.g-u-p.de** (DNS-CNAME auf
+  `<user>.github.io`, in `public/CNAME` hinterlegt). Der Workflow baut ohne
+  `BASE_PATH`-Override, `astro.config.mjs` läuft mit `base: "/"`.
+- Falls die Custom Domain vorübergehend nicht erreichbar ist (DNS-Ausfall o.ä.),
+  kann testweise wieder unter `https://<user>.github.io/nachfolge/` deployt werden:
+  dazu `BASE_PATH: /nachfolge/` als `env:` beim Build-Step in `deploy-pages.yml`
+  ergänzen und `public/CNAME` temporär entfernen.
 
 ## Bildquellen
 
@@ -59,20 +60,16 @@ Siehe [`IMAGE_SOURCES.md`](./IMAGE_SOURCES.md) für alle verwendeten Stockfotos
    (über Brevo), nicht öffentlich im HTML verlinkt.
 3. **Impressum vervollständigen**: Handelsregister, Registergericht,
    Registernummer und USt-ID fehlen noch (`src/pages/impressum.astro`).
-4. **Kim Flores – Foto bestätigen**: Das verwendete Portrait stammt von
-   floresadvisory.de, war dort aber keiner Person namentlich zugeordnet und
-   sollte vor Live-Schaltung gegengeprüft werden.
-5. **AmbergTax-Logo**: Freigabe zur Nutzung des Logos einholen (Quelle:
-   E-Mail-Anhang von Thomas Rumpler).
-6. **Custom Domain**: DNS für `nachfolge.g-u-p.de` einrichten (siehe
-   Deployment-Abschnitt oben).
-7. **V&S-Co-Branding klären**: Ein früherer HTML-Entwurf im Projektordner war
+4. **V&S-Co-Branding klären**: Ein früherer HTML-Entwurf im Projektordner war
    als gemeinsame G&P × Vollmer & Scheffczyk-Seite angelegt. Diese Version ist
    bewusst reines G&P gemäß Master-Briefing — mit dem Team abstimmen, ob ein
    V&S-Co-Branding tatsächlich gewünscht ist.
-8. **Stockfotos perspektivisch ersetzen**: Aktuell lizenzfreie Pexels-Fotos
-   (Werkstatt-Szenen). Eigene G&P-Projektfotos würden die Seite noch
-   authentischer machen.
+5. **Stockfotos perspektivisch ersetzen**: Aktuell lizenzfreie Pexels-Fotos.
+   Eigene G&P-Projektfotos würden die Seite noch authentischer machen.
+
+Erledigt: Custom Domain (www.nachfolge.g-u-p.de, DNS + HTTPS aktiv), Kim
+Flores/Michael Kasteleiner/Susanne Stroet-Fotos (von Florian bereitgestellt),
+AmbergTax-Logo-Freigabe (von Florian erteilt).
 
 ## Design-System
 

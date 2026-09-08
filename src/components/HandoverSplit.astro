@@ -28,7 +28,7 @@ const sides = [
   <div class="grid md:grid-cols-2">
     {
       sides.map((side) => (
-        <div class={`reveal ${side.dark ? 'bg-gp-black text-white grain' : 'bg-gp-warm-white text-gp-black'}`}>
+        <div class={`reveal ${side.dark ? 'bg-gp-black text-white' : 'bg-gp-warm-white text-gp-black'}`}>
           <div class="aspect-4/3 overflow-hidden img-zoom">
             <img
               src={`${base}${side.image}`}
@@ -40,7 +40,7 @@ const sides = [
             />
           </div>
           <div class="px-5 sm:px-8 lg:px-14 py-14 md:py-16">
-            <div class={`max-w-md mx-auto ${side.dark ? 'md:mr-0 md:ml-auto' : 'md:ml-0 md:mr-auto'}`}>
+            <div class="max-w-md mx-auto">
               <p class="text-gp-red text-sm font-medium uppercase tracking-wide mb-5">{side.label}</p>
               <h3 class="font-display font-bold text-[22px] md:text-[28px] leading-snug mb-5">{side.title}</h3>
               <p class={`text-[15px] leading-relaxed mb-2 font-medium ${side.dark ? 'text-white/90' : 'text-gp-black/85'}`}>{side.lead}</p>

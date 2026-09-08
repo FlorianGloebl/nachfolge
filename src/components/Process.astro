@@ -61,34 +61,43 @@ const maSteps = ['Bewertung', 'M&A-Prozess', 'Due Diligence', 'Verhandlung', 'Si
       ></span>
       {
         phases.map((phase, i) => (
-          <li class="relative pl-14 md:pl-20 pb-14 last:pb-0 reveal">
-            <span class="process-node absolute -left-4 md:-left-6 top-0 -translate-x-1/2 flex items-center justify-center w-9 h-9 md:w-11 md:h-11 rounded-full bg-gp-warm-white border-2 font-display font-bold text-sm transition-colors duration-500 border-gp-black/25 text-gp-black/40">
+          <li class="group relative pl-14 md:pl-20 pb-14 last:pb-0 reveal">
+            <span class="process-node absolute -left-4 md:-left-6 top-0 -translate-x-1/2 flex items-center justify-center w-9 h-9 md:w-11 md:h-11 rounded-full bg-gp-warm-white border-2 font-display font-bold text-sm transition-colors duration-500 border-gp-black/25 text-gp-black/40 z-10">
               {i + 1}
             </span>
-            <h3 class="font-display font-bold text-xl md:text-2xl text-gp-black mb-3">{phase.title}</h3>
-            <ul class="flex flex-wrap gap-2">
-              {phase.items.map((item) => (
-                <li class="text-[13px] text-gp-black/70 bg-gp-grey-light px-3 py-1.5 rounded-full">{item}</li>
-              ))}
-            </ul>
+            <div class="relative overflow-hidden bg-gp-white border border-gp-black/10 p-6 md:p-8 transition-colors duration-300 group-hover:border-gp-red/40">
+              <span
+                class="pointer-events-none select-none absolute -top-4 right-4 font-display font-extrabold text-gp-black/[0.05] leading-none transition-colors duration-500 group-hover:text-gp-red/[0.08]"
+                style="font-size:6rem"
+                aria-hidden="true"
+              >
+                {phase.n}
+              </span>
+              <h3 class="relative font-display font-bold text-xl md:text-2xl text-gp-black mb-3">{phase.title}</h3>
+              <ul class="relative flex flex-wrap gap-2">
+                {phase.items.map((item) => (
+                  <li class="text-[13px] text-gp-black/70 bg-gp-grey-light px-3 py-1.5 rounded-full">{item}</li>
+                ))}
+              </ul>
 
-            {i === 1 && (
-              <div class="mt-6 border border-gp-red/40 bg-gp-white p-6 max-w-xl">
-                <span class="inline-block text-xs font-semibold text-white bg-gp-red px-2.5 py-1 rounded-full mb-3">
-                  Bei Verkauf / Beteiligung
-                </span>
-                <p class="text-sm text-gp-black/70 mb-4">
-                  Je nach Mandat koordinieren wir hierfür weitere Spezialisten aus unserem
-                  Netzwerk bzw. begleiten den M&amp;A-Prozess gemeinsam mit erfahrenen
-                  Partnern.
-                </p>
-                <ul class="flex flex-wrap gap-2">
-                  {maSteps.map((step) => (
-                    <li class="text-[13px] text-gp-black bg-gp-grey-light px-3 py-1.5 rounded-full">{step}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
+              {i === 1 && (
+                <div class="relative mt-6 border border-gp-red/40 bg-gp-warm-white p-6 max-w-xl">
+                  <span class="inline-block text-xs font-semibold text-white bg-gp-red px-2.5 py-1 rounded-full mb-3">
+                    Bei Verkauf / Beteiligung
+                  </span>
+                  <p class="text-sm text-gp-black/70 mb-4">
+                    Je nach Mandat koordinieren wir hierfür weitere Spezialisten aus unserem
+                    Netzwerk bzw. begleiten den M&amp;A-Prozess gemeinsam mit erfahrenen
+                    Partnern.
+                  </p>
+                  <ul class="flex flex-wrap gap-2">
+                    {maSteps.map((step) => (
+                      <li class="text-[13px] text-gp-black bg-gp-white border border-gp-black/10 px-3 py-1.5 rounded-full">{step}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
           </li>
         ))
       }
