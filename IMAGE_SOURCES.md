@@ -49,4 +49,5 @@ Lizenz: https://www.pexels.com/license/ (kostenlos, kommerzielle Nutzung erlaubt
 
 - `uebergeber-zentriert.webp` und `nachfolger-zentriert.webp`: neue quadratische Ausschnitte des bereits dokumentierten Pexels-Fotos `hero-werkstatt.webp`, jeweils auf die Person ausgerichtet.
 - `public/logos/ehrlich-direkt-wirksam.svg`: vom Auftraggeber bereitgestelltes Markenlogo, lokal übernommen.
+- `public/images/content/kaminabend.png`: vom Auftraggeber am 20.09.2026 bereitgestelltes Foto `Kamin_quer.png`, als dezenter Hintergrund der Auftaktveranstaltung eingesetzt.
 - `public/logos/vollmer-scheffczyk.png`: aktuelles Logo von der offiziellen Website, https://v-und-s.de/wp-content/uploads/2026/06/VS_Logo_solo_RBG_RZ-300x300.png (20.09.2026). Für die vom Auftraggeber gewünschte Überlappung wird die Darstellung per CSS beschnitten; die Quelldatei bleibt unverändert.

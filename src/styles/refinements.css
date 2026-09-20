@@ -35,7 +35,8 @@ main > #ablauf { padding-top: 0; background: #fff; }
 .model-detail summary { font-size: 14px; }
 #nachfolgemodell .mt-20 { margin-top: 56px; }
 .three-circles { max-width: 490px; justify-self: center; }
-.team-quote blockquote { max-width: none; text-transform: uppercase; font-weight: 600; font-style: normal; letter-spacing: .01em; }
+.team-quote { padding: 36px 24px; background: #fcf0f2; border-top: 0; border-left: 3px solid #c41e3a; border-radius: 0 6px 6px 0; }
+.team-quote blockquote { max-width: none; text-transform: none; font-weight: 500; font-style: normal; letter-spacing: normal; }
 .question-mark { font-size: 230px; }
 .onsite-line { display: block; white-space: nowrap; }
 .brand-stack { position: relative; width: 105px; height: 60px; flex-shrink: 0; }
@@ -67,7 +68,7 @@ footer .footer-brands .footer-edw { width: 112px; height: 112px !important; }
 .compact-booking .booking-note { margin-top: 10px; }
 @media (min-width: 1200px) {
   .warning-intro { white-space: nowrap; }
-  .team-quote blockquote { font-size: clamp(16px,1.3vw,19px); line-height: 1.8; }
+  .team-quote blockquote { font-size: clamp(18px,1.45vw,21px); line-height: 1.7; }
   .team-quote blockquote > span { display: block; white-space: nowrap; }
 }
 @media (max-width: 767px) {
