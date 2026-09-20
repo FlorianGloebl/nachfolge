@@ -5,25 +5,23 @@
 @import "@fontsource/inter/500.css";
 @import "@fontsource/inter/600.css";
 @import "@fontsource/inter/700.css";
-@import "@fontsource/manrope/500.css";
-@import "@fontsource/manrope/700.css";
-@import "@fontsource/manrope/800.css";
-@import "@fontsource/fraunces/500-italic.css";
-@import "@fontsource/fraunces/600-italic.css";
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource-variable/geist-mono";
 
 @theme {
-  --color-gp-red: #b70c34;
-  --color-gp-red-dark: #8f0929;
-  --color-gp-black: #101010;
+  --color-gp-red: #c41e3a;
+  --color-gp-red-dark: #a31832;
+  --color-gp-black: #0a0a0a;
   --color-gp-charcoal: #1a1a1a;
-  --color-gp-warm-white: #f7f6f3;
+  --color-gp-warm-white: #fafafa;
   --color-gp-white: #ffffff;
-  --color-gp-grey-light: #ecebea;
-  --color-gp-grey-mid: #77736f;
+  --color-gp-grey-light: #f4f4f5;
+  --color-gp-grey-mid: #52525b;
 
-  --font-display: "Manrope", "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk Variable", "Inter", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
-  --font-quote: "Fraunces", "Georgia", serif;
+  --font-quote: "Space Grotesk Variable", "Inter", system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", monospace;
 
   --container-content: 1280px;
 }
@@ -31,6 +29,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    color-scheme: light;
+    scroll-padding-top: 100px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -48,7 +48,7 @@
   }
 
   body {
-    background: var(--color-gp-warm-white);
+    background: var(--color-gp-white);
     color: var(--color-gp-black);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -75,8 +75,8 @@
 
 @layer utilities {
   .reveal {
-    opacity: 0;
-    transform: translateY(24px);
+    opacity: 1;
+    transform: none;
     transition:
       opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
       transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);

@@ -49,13 +49,13 @@ const warnings = [
 <section class="bg-gp-warm-white py-24 md:py-32" id="problem">
   <div class="mx-auto max-w-(--container-content) px-5 sm:px-8">
     <div class="grid lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 items-end reveal">
+      <div><p class="eyebrow">Was jetzt wichtig ist</p>
       <h2 class="font-display font-bold text-[26px] md:text-4xl lg:text-5xl leading-tight text-gp-black">
         Formal geregelt heißt noch lange nicht erfolgreich übergeben.
-      </h2>
+      </h2></div>
       <p class="text-lg text-gp-black/70 leading-relaxed">
         Bei Unternehmensnachfolge wird häufig zuerst über Anteile, Steuern, Kaufpreis,
-        Erbrecht und Verträge gesprochen. Das ist notwendig, reicht aber nicht. G&amp;P
-        fokussiert zusätzlich auf Rollen, Erwartungen, Führung, Akzeptanz, Kommunikation,
+        Erbrecht und Verträge gesprochen. Das ist notwendig, reicht aber nicht. Wir schauen zusätzlich auf Rollen, Erwartungen, Führung, Akzeptanz, Kommunikation,
         Organisation und Übergang.
       </p>
     </div>
@@ -71,20 +71,24 @@ const warnings = [
       }
     </div>
 
+    <aside class="planning-note">
+      <div><p class="eyebrow">Zeit für einen guten Übergang</p><h3>Nachfolge beginnt lange vor der Übergabe.</h3><p>Ein Generationswechsel ist ein anspruchsvoller Prozess, der Monate oder Jahre dauern kann. Menschen wachsen in Verantwortung hinein, Vertrauen entsteht im Alltag und neue Rollen müssen sich bewähren. Mit der Klärung können Sie kaum zu früh beginnen – je früher Sie starten, desto größer Ihr Gestaltungsspielraum.</p></div>
+      <div class="planning-time" aria-hidden="true"><span>Monate.</span><span>Jahre.</span><strong>Jetzt beginnen.</strong></div>
+    </aside>
     <div class="mt-24 reveal">
-      <h3 class="font-display font-bold text-2xl md:text-3xl text-gp-black max-w-xl">
+      <div class="warning-heading"><div>
+      <h3 class="font-display font-bold text-2xl md:text-3xl text-gp-black">
         Woran Sie erkennen, dass Ihre Nachfolge noch nicht ausreichend vorbereitet ist
       </h3>
-      <p class="mt-4 text-gp-black/60 max-w-xl">
-        Sechs Signale, die in der Praxis immer wieder auftauchen – oft, ohne dass sie als
-        solche erkannt werden.
-      </p>
 
+
+      </div><span class="question-mark" aria-hidden="true">?</span></div>
+      <p class="warning-intro">Sechs Signale, die in der Praxis immer wieder auftauchen – oft, ohne dass sie als solche erkannt werden.</p>
       <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gp-black/10 border border-gp-black/10">
         {
-          warnings.map((w) => (
+          warnings.map((w, index) => (
             <div class="group bg-gp-black text-white p-7 md:p-8 flex flex-col min-h-[200px]">
-              <w.icon class="w-7 h-7 text-gp-red mb-5 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
+              <div class="warning-card-top"><w.icon class="w-7 h-7 text-gp-red" strokeWidth={1.5} /><span class="warning-number">{String(index + 1).padStart(2, '0')}</span></div>
               <h4 class="font-display font-semibold text-white text-[16px] leading-snug mb-2">{w.title}</h4>
               <p class="text-sm text-white/55 leading-relaxed mt-auto pt-3">{w.text}</p>
             </div>

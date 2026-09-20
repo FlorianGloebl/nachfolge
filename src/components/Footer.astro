@@ -5,11 +5,13 @@ const base = import.meta.env.BASE_URL;
 
 const navLinks = [
   { href: '#ansatz', label: 'Unser Ansatz' },
-  { href: '#nachfolger-finden', label: 'Nachfolger finden' },
+  { href: '#nachfolger-finden', label: 'Generationswechsel' },
   { href: '#ablauf', label: 'Ablauf' },
   { href: '#team', label: 'Team' },
+  { href: '#termine', label: 'Termine' },
   { href: '#partner', label: 'Partner' },
-  { href: '#wissen', label: 'Wissen' },
+  { href: '#wissen', label: 'Nachfolge-Check' },
+  { href: '#erstanalyse', label: 'Erstanalyse' },
 ];
 ---
 
@@ -17,9 +19,9 @@ const navLinks = [
   <div class="border-t-2 border-gp-red" />
   <div class="mx-auto max-w-(--container-content) px-5 sm:px-8 pt-16 pb-12 grid gap-12 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
     <div>
-      <img src={`${base}logos/gundp-logo.svg`} alt="G&amp;P Management Consultants" class="h-10 w-auto brightness-0 invert mb-5" />
+      <div class="footer-brands"><div class="brand-stack"><a class="brand-gp" href="https://www.g-u-p.de/" aria-label="Glöbl & Partner"><img src={`${base}logos/gundp-logo.svg`} alt="Glöbl & Partner" width="80" height="80" /></a><a class="brand-vs" href="https://v-und-s.de/" aria-label="Vollmer & Scheffczyk"><img src={`${base}logos/vollmer-scheffczyk.png`} alt="Vollmer & Scheffczyk" width="80" height="80" /></a></div><img class="footer-edw" src={`${base}logos/ehrlich-direkt-wirksam.svg`} alt="Ehrlich. Direkt. Wirksam." width="120" height="120" /></div>
       <p class="text-[15px] leading-relaxed max-w-xs text-white/60">
-        Ehrlich. Direkt. Wirksam. G&amp;P begleitet Unternehmensnachfolgen im Mittelstand –
+        Wir begleiten Unternehmensnachfolgen im Mittelstand –
         von der Analyse bis zur erfolgreichen Übergabe.
       </p>
       <div class="mt-6 flex gap-3">
@@ -50,7 +52,7 @@ const navLinks = [
       <div class="text-white/40 text-xs font-medium uppercase tracking-wide mb-4">Navigation</div>
       <ul class="space-y-2.5">
         {navLinks.map((l) => (
-          <li><a href={l.href} class="text-white/70 hover:text-white transition-colors">{l.label}</a></li>
+          <li><a href={`${base}${l.href}`} class="text-white/70 hover:text-white transition-colors">{l.label}</a></li>
         ))}
       </ul>
     </div>
@@ -80,7 +82,7 @@ const navLinks = [
         <li><a href={`${base}datenschutz/`} class="hover:text-white transition-colors">Datenschutz</a></li>
       </ul>
       <a
-        href="#kontakt"
+        href={`${base}#kontakt`}
         class="mt-6 inline-flex items-center gap-1.5 text-gp-red hover:text-white transition-colors font-medium"
       >
         Erstgespräch vereinbaren

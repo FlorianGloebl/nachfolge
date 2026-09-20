@@ -1,0 +1,62 @@
+---
+import { ArrowUpRight, Clock, Video } from '@lucide/astro';
+const base = import.meta.env.BASE_URL;
+const registration = `mailto:info@g-u-p.de?subject=${encodeURIComponent('Anmeldung zum Kaminabend am 12. November 2026')}&body=${encodeURIComponent('Hallo Florian, hallo Susanne,\n\nich möchte mich zum Kaminabend „Wenn Verantwortung die Generation wechselt“ am 12. November 2026 anmelden.\n\nName:\nUnternehmen:\nWeitere teilnehmende Person (optional):\n\nViele Grüße')}`;
+---
+<section id="termine" class="events-section" aria-labelledby="event-title">
+  <div class="gp-container">
+    <p class="eyebrow">Termine · Unsere Auftaktveranstaltung</p>
+    <article class="event-layout">
+      <div class="event-date-panel">
+        <p class="event-format">Online-Kaminabend</p>
+        <time datetime="2026-11-12T18:00:00+01:00" class="event-date"><span>12</span><span>November 2026</span></time>
+        <p class="event-fact"><Clock size={17} aria-hidden="true" /> Donnerstag, 18–20 Uhr</p>
+        <p class="event-fact"><Video size={17} aria-hidden="true" /> Online über Microsoft Teams</p>
+        <div class="event-hosts">
+          <p>Durch den Abend begleiten Sie</p>
+          <div><img src={`${base}images/team/florian-gloebl.webp`} alt="" width="60" height="60" loading="lazy" /><span><strong>Florian Glöbl</strong><span>Glöbl &amp; Partner</span></span></div>
+          <div><img src={`${base}images/team/susanne-stroet.webp`} alt="" width="60" height="60" loading="lazy" /><span><strong>Susanne Stroet</strong><span>Vollmer &amp; Scheffczyk</span></span></div>
+        </div>
+      </div>
+      <div class="event-content">
+        <h2 id="event-title">Wenn Verantwortung die Generation wechselt.</h2>
+        <p class="event-subtitle">Orientierung und Impulse jenseits der klassischen Nachfolgeberatung.</p>
+        <p>Ein Generationswechsel ist mehr als eine Unterschrift. Es geht um ein Lebenswerk, eigene Vorstellungen und die Frage: Wie gelingt es, Verantwortung abzugeben und zu übernehmen – und dabei als Familie verbunden zu bleiben?</p>
+        <p>Gemeinsam mit Unternehmerinnen und Unternehmern, die den Wechsel innerhalb der Familie erlebt haben, sprechen wir offen darüber, was gelungen ist und was schwieriger war als gedacht. Im Mittelpunkt stehen Familie und Unternehmen, neue Rollen und Erwartungen. Dazu gibt es persönliche Erfahrungen, Impulse und Raum für Ihre Fragen.</p>
+        <p>Ob der Wechsel noch bevorsteht oder Sie schon mittendrin sind: Kommen Sie gerne gemeinsam als Generationentandem oder auch allein.</p>
+        <div class="event-registration"><a class="gp-button" href={registration}>Zum Kaminabend anmelden <ArrowUpRight size={18} /></a></div>
+        <p class="event-outlook">Der Auftakt für eine Community der übergebenden und der nächsten Generation. Ab Frühjahr 2027 sind weitere Präsenztermine geplant – für regelmäßigen Erfahrungsaustausch, vertiefende Impulse und gemeinsames Arbeiten an Ihren Fragen.</p>
+      </div>
+    </article>
+  </div>
+</section>
+<style>
+  .events-section { background: #fff; }
+  .event-layout { display: grid; grid-template-columns: 300px minmax(0,1fr); border-top: 2px solid #c41e3a; margin-top: 24px; }
+  .event-date-panel { padding: 36px 28px; background: #fcf0f2; }
+  .event-format { font: 12px var(--font-mono); text-transform: uppercase; letter-spacing: .07em; color: #9f1630; }
+  .event-date { display: block; margin: 20px 0 28px; font-family: var(--font-display); }
+  .event-date > span:first-child { display: block; font-size: 100px; line-height: 1; font-weight: 600; color: #c41e3a; letter-spacing: -.07em; }
+  .event-date > span:last-child { display: block; font-size: 23px; margin-top: 10px; font-weight: 600; }
+  .event-fact { display: flex; gap: 10px; align-items: center; font-size: 13px; line-height: 1.7; margin-top: 12px; }
+  .event-fact :global(svg) { flex-shrink: 0; color: #a31832; }
+  .event-hosts { border-top: 1px solid #e8cdd4; margin-top: 32px; padding-top: 24px; }
+  .event-hosts > p { font-size: 12px; color: #52525b; margin-bottom: 20px; }
+  .event-hosts > div { display: flex; gap: 14px; align-items: center; margin-top: 18px; }
+  .event-hosts img { width: 54px; height: 62px; object-fit: cover; object-position: center 30%; border-radius: 4px; }
+  .event-hosts strong { font-size: 15px; font-weight: 600; }
+  .event-hosts span > span { display: block; font-size: 11px; color: #52525b; margin-top: 4px; }
+  .event-content { padding: 34px 0 0 clamp(28px,4vw,60px); }
+  .event-content h2 { font: 600 clamp(29px,3.1vw,44px)/1.15 var(--font-display); letter-spacing: -.035em; }
+  .event-subtitle { font-size: 19px; line-height: 1.5; color: #9f1630; margin-top: 18px; }
+  .event-content > p:not(.event-subtitle) { font-size: 15px; line-height: 1.8; color: #52525b; margin-top: 20px; }
+  .event-registration { display: flex; align-items: flex-start; flex-direction: column; gap: 12px; margin-top: 28px; }
+  .event-content > .event-outlook { border-top: 1px solid #e4e4e7; padding-top: 20px; margin-top: 28px; font-size: 13px !important; }
+  @media (max-width: 767px) {
+    .event-layout { grid-template-columns: 1fr; }
+    .event-date-panel { padding: 26px; }
+    .event-date > span:first-child { font-size: 76px; }
+    .event-content { padding: 28px 0 0; }
+    .event-registration .gp-button { font-size: 13px; padding-inline: 18px; }
+  }
+</style>

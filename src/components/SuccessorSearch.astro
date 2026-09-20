@@ -1,70 +1,47 @@
 ---
-const steps = [
-  { n: '01', title: 'Unternehmen verstehen' },
-  { n: '02', title: 'Anforderungsprofil entwickeln' },
-  { n: '03', title: 'Kandidaten identifizieren' },
-  { n: '04', title: 'Gespräche & Auswahl begleiten' },
-  { n: '05', title: 'Entscheidung vorbereiten' },
+import { Sprout, Search, ArrowDown, Users, MessageCircle, Compass } from '@lucide/astro';
+const routes = [
+  { icon: Sprout, label: 'Der Generationswechsel', title: 'Die Nachfolge steht fest.', description: 'Die Tochter, der Sohn oder eine Führungskraft übernimmt. Jetzt geht es darum, in die neue Verantwortung hineinzuwachsen – und die bisherige Führung beim Loslassen zu begleiten.', steps: [
+    { title: 'Erwartungen offenlegen', text: 'Familie, Unternehmen und persönliche Vorstellungen miteinander ins Gespräch bringen.' },
+    { title: 'Nachfolger stärken', text: 'Führung entwickeln, Entscheidungskompetenzen klären und im Alltag erproben.' },
+    { title: 'Verantwortung übergeben', text: 'Rollen verändern, Wissen weitergeben und Akzeptanz in der Mannschaft aufbauen.' },
+  ] },
+  { icon: Search, label: 'Wenn die Nachfolge offen ist', title: 'Die passende Person finden.', description: 'Fehlt eine Nachfolge in der Familie oder im Unternehmen, helfen wir bei der Suche. Wir betrachten fachliche Eignung und menschliche Passung gemeinsam.', steps: [
+    { title: 'Ein klares Profil entwickeln', text: 'Welche Persönlichkeit, Erfahrung und Führung braucht dieses Unternehmen?' },
+    { title: 'Suchen und kennenlernen', text: 'Kandidaten ansprechen, Gespräche führen und die gegenseitigen Erwartungen prüfen.' },
+    { title: 'Entscheidung und Einstieg begleiten', text: 'Passung bewerten, die Auswahl vorbereiten und einen tragfähigen Übergang gestalten.' },
+  ] },
 ];
-
 const criteria = [
-  'Persönlichkeit',
-  'Führung',
-  'Werteverständnis',
-  'Umgang mit bestehender Mannschaft',
-  'Zukunftsbild',
-  'Unternehmerische Eignung',
-  'Kulturelle Passung',
+  { icon: Users, title: 'Menschen & Vertrauen', text: 'Persönlichkeit, Empathie und der Umgang mit der bestehenden Mannschaft.' },
+  { icon: MessageCircle, title: 'Führung & Zusammenarbeit', text: 'Klare Entscheidungen, offene Gespräche und ein gemeinsames Werteverständnis.' },
+  { icon: Compass, title: 'Unternehmertum & Zukunft', text: 'Unternehmerische Eignung, kulturelle Passung und eine Perspektive für das Unternehmen.' },
 ];
 ---
-
-<section class="bg-gp-charcoal text-white py-24 md:py-32" id="nachfolger-finden">
-  <div class="mx-auto max-w-(--container-content) px-5 sm:px-8">
-    <div class="grid lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 items-end reveal">
-      <h2 class="font-display font-bold text-[26px] md:text-4xl lg:text-5xl leading-tight">
-        Wenn der Nachfolger noch nicht feststeht, beginnt unsere Arbeit früher.
-      </h2>
-      <p class="text-lg text-white/70 leading-relaxed">
-        Gemeinsam entwickeln wir ein belastbares Anforderungsprofil: Welche
-        unternehmerische Persönlichkeit braucht dieses Unternehmen? Welche Werte,
-        Führungsqualitäten und Erfahrungen sind entscheidend? Anschließend identifizieren
-        und qualifizieren wir passende Kandidatinnen und Kandidaten und begleiten den
-        Auswahlprozess bis zur Entscheidung.
-      </p>
+<section class="bg-gp-black text-white" id="nachfolger-finden">
+  <div class="gp-container">
+    <div class="succession-heading">
+      <p class="eyebrow">Generationswechsel begleiten. Passende Nachfolge finden.</p>
+      <h2>Menschen in Verantwortung bringen.</h2>
+      <p class="section-lead">In vielen Familienunternehmen steht bereits fest, wer übernimmt. Unser Schwerpunkt ist, diese Menschen aufzubauen und den Übergang zwischen den Generationen wirksam zu gestalten. Ist die Nachfolge noch offen, suchen wir mit Ihnen nach einer passenden Lösung.</p>
     </div>
-
-    <ol class="mt-16 grid sm:grid-cols-5 reveal">
-      {
-        steps.map((s, i) => (
-          <li class="relative pt-8 pr-4">
-            <span class="absolute left-0 top-0 h-px w-full bg-white/15" aria-hidden="true" />
-            <span class={`absolute left-0 top-0 h-px bg-gp-red transition-all duration-700 ${i === 0 ? 'w-full' : 'w-0'}`} aria-hidden="true" />
-            <span class="font-display font-bold text-sm text-gp-red">{s.n}</span>
-            <p class="mt-3 text-[15px] text-white/85 leading-snug">{s.title}</p>
-          </li>
-        ))
-      }
-    </ol>
-
-    <div class="mt-20 grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center reveal">
-      <p class="quote-mark relative font-display text-2xl md:text-[32px] leading-snug text-white">
-        Der höchste Kaufpreis ist nicht automatisch die beste Nachfolge.
-      </p>
-      <div>
-        <p class="text-white/70 mb-6">
-          Nicht nur fachliche Qualifikation betrachten, sondern auch:
-        </p>
-        <ul class="flex flex-wrap gap-2.5">
-          {criteria.map((c) => (
-            <li class="text-[13.5px] text-white/85 bg-white/10 border border-white/10 px-3.5 py-2 rounded-full">{c}</li>
-          ))}
-        </ul>
-      </div>
+    <div class="succession-routes">
+      {routes.map(route => (
+        <article class="succession-route">
+          <div class="route-heading"><route.icon size={30} strokeWidth={1.5} /><span>{route.label}</span></div>
+          <h3>{route.title}</h3>
+          <p>{route.description}</p>
+          <ol class="route-steps">
+            {route.steps.map((step, i) => <li><span class="route-step-number">{i + 1}</span><div><h4>{step.title}</h4><p>{step.text}</p></div>{i < 2 && <ArrowDown class="route-next" size={18} aria-hidden="true" />}</li>)}
+          </ol>
+        </article>
+      ))}
     </div>
-
-    <p class="mt-20 pt-10 border-t border-white/10 text-xl md:text-2xl font-display text-white/90 max-w-2xl reveal">
-      G&amp;P kann die Suche selbst übernehmen und greift dabei auf ein großes,
-      belastbares Netzwerk zurück.
-    </p>
+    <div class="shared-outcome"><ArrowDown size={22} aria-hidden="true" /><p>Ein gemeinsames Ziel: <strong>Führung, die von Menschen getragen wird.</strong></p></div>
+    <div class="succession-fit">
+      <div><p class="eyebrow">Was die Passung ausmacht</p><h3>Fachliche Qualifikation ist erst der Anfang.</h3><p>Auch der höchste Kaufpreis ist nicht automatisch die beste Nachfolge. Entscheidend ist, wer das Unternehmen versteht und mit den Menschen weiterführen kann.</p></div>
+      <dl class="fit-criteria">{criteria.map(c => <div><c.icon size={24} aria-hidden="true" /><dt>{c.title}</dt><dd>{c.text}</dd></div>)}</dl>
+    </div>
+    <aside class="succession-alternatives"><h3>Und wenn sich kein Nachfolger findet?</h3><p>Auch darauf braucht es eine ehrliche Antwort. Wir helfen bei der Suche, nutzen unser belastbares Netzwerk und prüfen rechtzeitig Alternativen – etwa eine Fremdgeschäftsführung, eine Beteiligung oder einen Verkauf. Eine passende Nachfolge lässt sich nicht versprechen. Umso wichtiger ist es, früh zu beginnen und mehrere Wege offen zu halten.</p></aside>
   </div>
 </section>

@@ -5,7 +5,7 @@ const sides = [
     label: 'Für den Übergeber',
     title: 'Loslassen, ohne das Lebenswerk aus der Hand zu geben.',
     dark: false,
-    image: 'images/content/uebergeber-modern.webp',
+    image: 'images/content/uebergeber-zentriert.webp',
     alt: 'Erfahrener Unternehmer, der Verantwortung übergibt',
     lead: 'Formale Verantwortung ist am Tag der Übergabe geregelt. Die eigene Rolle danach nicht.',
     text: 'Was bleibt von der eigenen Rolle, wenn die Verantwortung nicht mehr täglich gebraucht wird? Übergeber stehen vor der Aufgabe, Sicherheit abzugeben, ohne sich selbst zu verlieren – und eine persönliche Perspektive für die Zeit nach der Übergabe zu entwickeln.',
@@ -15,7 +15,7 @@ const sides = [
     label: 'Für den Nachfolger',
     title: 'Übernehmen, ohne alles umzukrempeln.',
     dark: true,
-    image: 'images/content/nachfolger-modern.webp',
+    image: 'images/content/nachfolger-zentriert.webp',
     alt: 'Junger Nachfolger, der Verantwortung übernimmt',
     lead: 'Formale Verantwortung ist am Tag der Übergabe geregelt. Vertrauen nicht.',
     text: 'Mitarbeitende, Führungskräfte und Kunden beobachten zunächst, ob die neue Führung fortsetzt, was das Unternehmen ausgemacht hat – und ob sie versteht, bevor sie verändert. Interner Widerstand hat dabei selten mit Ablehnung zu tun, sondern mit Sorge um Bewährtes und einer noch unklaren eigenen Rolle.',
@@ -24,7 +24,7 @@ const sides = [
 ];
 ---
 
-<section class="bg-gp-white">
+<section class="handover-section bg-gp-white">
   <div class="grid md:grid-cols-2">
     {
       sides.map((side) => (
@@ -41,13 +41,13 @@ const sides = [
           </div>
           <div class="px-5 sm:px-8 lg:px-14 py-14 md:py-16">
             <div class="max-w-md mx-auto">
-              <p class="text-gp-red text-sm font-medium uppercase tracking-wide mb-5">{side.label}</p>
+              <p class="handover-label">{side.label}</p>
               <h3 class="font-display font-bold text-[22px] md:text-[28px] leading-snug mb-5">{side.title}</h3>
               <p class={`text-[15px] leading-relaxed mb-2 font-medium ${side.dark ? 'text-white/90' : 'text-gp-black/85'}`}>{side.lead}</p>
               <p class={`text-[15px] leading-relaxed mb-8 ${side.dark ? 'text-white/65' : 'text-gp-black/65'}`}>{side.text}</p>
-              <ul class="flex flex-wrap gap-2">
+              <ul class="editorial-list handover-list">
                 {side.items.map((item) => (
-                  <li class={`text-[13px] px-3 py-1.5 rounded-full ${side.dark ? 'bg-white/10 text-white/80' : 'bg-gp-grey-light text-gp-black/70'}`}>
+                  <li >
                     {item}
                   </li>
                 ))}

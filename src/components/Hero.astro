@@ -1,96 +1,39 @@
 ---
-import { ArrowRight } from '@lucide/astro';
+import { ArrowRight, ArrowDown, Building2, Users, ArrowLeftRight } from '@lucide/astro';
 const base = import.meta.env.BASE_URL;
-
-const trustWords = ['Organisation', 'Nachfolgersuche', 'Führung', 'Übergabe', 'M&A', 'Coaching'];
+const pillars = [
+  { icon: Building2, title: 'Das Unternehmen vorbereiten.', text: 'Erfolgsmuster verstehen. Abhängigkeiten lösen. Nachfolgefähigkeit schaffen.', href: '#ansatz', number: '01' },
+  { icon: Users, title: 'Die nächste Generation stärken.', text: 'Familiennachfolge gestalten. Nachfolger aufbauen. Bei Bedarf die passenden Menschen finden.', href: '#nachfolger-finden', number: '02' },
+  { icon: ArrowLeftRight, title: 'Den Übergang wirksam gestalten.', text: 'Verantwortung übergeben. Führung stärken. Zukunft gemeinsam entwickeln.', href: '#ablauf', number: '03' },
+];
 ---
-
-<section class="relative bg-gp-black text-white overflow-hidden grain" id="nachfolge">
-  <div id="hero-bg" class="absolute inset-0 -top-[8%] h-[116%] will-change-transform">
+<section class="succession-hero" id="nachfolge">
+  <div class="hero-background" aria-hidden="true">
     <picture>
       <source media="(max-width: 767px)" srcset={`${base}images/hero/hero-werkstatt-mobile.webp`} />
-      <img
-        src={`${base}images/hero/hero-werkstatt.webp`}
-        alt="Erfahrener Unternehmer und sein Nachfolger besprechen gemeinsam Unterlagen"
-        class="h-full w-full object-cover"
-        fetchpriority="high"
-        width="2000"
-        height="1333"
-      />
+      <img src={`${base}images/hero/hero-werkstatt.webp`} alt="" width="2000" height="1333" fetchpriority="high" />
     </picture>
-    <div class="absolute inset-0 bg-gradient-to-r from-gp-black via-gp-black/85 to-gp-black/40"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-gp-black via-transparent to-transparent"></div>
   </div>
+  <div class="gp-container">
+    <div class="hero-intro">
+      <div>
+        <p class="eyebrow">Unternehmensnachfolge im Mittelstand</p>
+        <h1>Damit weitergeht,<br /><span>was Sie aufgebaut haben.</span></h1>
+        <p class="hero-lead">Ihr Lebenswerk. Neue Verantwortung. Eine Zukunft, die trägt.</p>
+        <p class="hero-description">Wir begleiten produzierende und familiengeführte Unternehmen von der ersten Klärung bis zur gelungenen Übergabe. Unser Schwerpunkt: den Generationswechsel gestalten, Nachfolger aufbauen und die neue Führung stärken. Steht die Nachfolge noch nicht fest, helfen wir bei der Suche und prüfen gemeinsam tragfähige Alternativen.</p>
 
-  <div class="relative mx-auto max-w-(--container-content) px-5 sm:px-8 pt-32 pb-24 md:pt-44 md:pb-32">
-    <div class="max-w-2xl">
-      <p class="text-gp-red font-medium tracking-wide text-sm md:text-base uppercase mb-5 reveal" style="transition-delay:0ms">
-        Unternehmensnachfolge
-      </p>
-      <h1 class="font-display font-extrabold text-[30px] sm:text-5xl md:text-6xl lg:text-[68px] leading-[1.2] sm:leading-[1.08] tracking-tight reveal" style="transition-delay:70ms">
-        Damit weitergeht, was Sie aufgebaut haben.
-      </h1>
-      <p class="mt-7 text-lg md:text-xl text-white/85 max-w-xl leading-relaxed reveal" style="transition-delay:140ms">
-        G&amp;P begleitet Mittelständler von der ersten Klärung über die Suche nach
-        geeigneten Nachfolgern bis zur Übergabe und Weiterentwicklung.
-      </p>
-      <p class="mt-4 text-base md:text-lg text-white/60 max-w-xl leading-relaxed reveal" style="transition-delay:200ms">
-        Nachfolge ist mehr als ein Kaufvertrag. Sie betrifft Menschen, Führung,
-        Verantwortung und die Zukunft eines ganzen Unternehmens.
-      </p>
-
-      <div class="mt-10 flex flex-col sm:flex-row gap-4 reveal" style="transition-delay:260ms">
-        <a
-          href="#kontakt"
-          class="inline-flex items-center justify-center gap-2 bg-gp-red hover:bg-gp-red-dark text-white font-medium px-7 py-4 transition-colors"
-        >
-          Nachfolge besprechen
-          <ArrowRight class="w-4 h-4" />
-        </a>
-        <a
-          href="#ansatz"
-          class="inline-flex items-center justify-center gap-2 border border-white/30 hover:border-white text-white font-medium px-7 py-4 transition-colors"
-        >
-          Unseren Ansatz ansehen
-        </a>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="relative mt-4 md:mt-8 pb-8 md:pb-10 border-t border-white/10 reveal" style="transition-delay:320ms">
-    <div class="marquee-mask overflow-hidden py-5">
-      <div class="marquee-track flex w-max gap-10 text-sm text-white/50 tracking-wide whitespace-nowrap">
-        {[...Array(2)].map(() => (
-          trustWords.map((w) => (
-            <span class="flex items-center gap-10">
-              {w}
-              <span class="text-gp-red">·</span>
-            </span>
-          ))
-        ))}
       </div>
     </div>
+    <div class="hero-actions"><a href="#kontakt" class="gp-button">Nachfolge besprechen <ArrowRight size={18} /></a><a href="#ansatz" class="gp-button gp-button-secondary">Unser Ansatz <ArrowDown size={17} /></a></div>
+    <div class="hero-pillars">
+      {pillars.map((pillar) => (
+        <a href={pillar.href} class="hero-pillar">
+          <div class="pillar-top"><pillar.icon size={22} strokeWidth={1.5} /><span>{pillar.number}</span></div>
+          <h2>{pillar.title}</h2><p>{pillar.text}</p>
+          <ArrowRight class="pillar-arrow" size={18} />
+        </a>
+      ))}
+    </div>
+    <div class="hero-bottom"><a href="#problem">Was jetzt wichtig ist <ArrowDown size={16} /></a></div>
   </div>
 </section>
-
-<script>
-  const heroBg = document.getElementById('hero-bg');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (heroBg && !prefersReducedMotion) {
-    let ticking = false;
-    const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const y = window.scrollY;
-          if (y < window.innerHeight) {
-            heroBg.style.transform = `translateY(${y * 0.15}px)`;
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-  }
-</script>

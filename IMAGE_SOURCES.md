@@ -1,7 +1,15 @@
 # Bildquellen
 
-Alle Fotos sind lizenzfrei (Pexels License bzw. jeweilige Unternehmenswebsite) und lokal
-gespeichert/optimiert (WebP). Kein Hotlinking.
+Die Bilder sind lokal gespeichert und optimiert (WebP). Kein Hotlinking.
+Die jeweilige Herkunft ist unten dokumentiert.
+
+## Vom Auftraggeber bereitgestellt
+
+- `public/images/content/verstehen-nachfolge.webp`: vom Auftraggeber am 19.09.2026
+  im Chat für „Verstehen vor Verändern“ bereitgestelltes Foto
+  (`6e1d5e52-7b85-4730-9aec-efa3a9ff605c.png`).
+  Als WebP optimiert, vollständiges Seitenverhältnis 3:2 beibehalten.
+  Ersetzt dort `verstehen-vor-veraendern.webp`.
 
 ## Stockfotos (Pexels License – kostenlose kommerzielle Nutzung)
 
@@ -36,3 +44,9 @@ Lizenz: https://www.pexels.com/license/ (kostenlos, kommerzielle Nutzung erlaubt
 ## Offene TODOs Bildwelt
 
 - Optional: eigene/echte G&P-Projektfotos (Werkhalle, Übergabesituation) könnten die Stockfotos in einer späteren Version ersetzen.
+
+## Neue Ausschnitte für die Perspektiven der Übergabe
+
+- `uebergeber-zentriert.webp` und `nachfolger-zentriert.webp`: neue quadratische Ausschnitte des bereits dokumentierten Pexels-Fotos `hero-werkstatt.webp`, jeweils auf die Person ausgerichtet.
+- `public/logos/ehrlich-direkt-wirksam.svg`: vom Auftraggeber bereitgestelltes Markenlogo, lokal übernommen.
+- `public/logos/vollmer-scheffczyk.png`: aktuelles Logo von der offiziellen Website, https://v-und-s.de/wp-content/uploads/2026/06/VS_Logo_solo_RBG_RZ-300x300.png (20.09.2026). Für die vom Auftraggeber gewünschte Überlappung wird die Darstellung per CSS beschnitten; die Quelldatei bleibt unverändert.

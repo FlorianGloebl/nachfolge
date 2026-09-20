@@ -1,4 +1,5 @@
 ---
+import { Footprints, Flag } from '@lucide/astro';
 const phases = [
   {
     n: '01',
@@ -12,8 +13,8 @@ const phases = [
   },
   {
     n: '03',
-    title: 'Nachfolgerprofil & Suche',
-    items: ['Anforderungen', 'Kandidaten', 'Ansprache', 'Auswahl', 'Passung'],
+    title: 'Nachfolger aufbauen oder finden',
+    items: ['Kompetenzen entwickeln', 'Sparring', 'Bei Bedarf: Profil, Suche und Auswahl'],
   },
   {
     n: '04',
@@ -40,116 +41,38 @@ const phases = [
 const maSteps = ['Bewertung', 'M&A-Prozess', 'Due Diligence', 'Verhandlung', 'Signing', 'Closing', 'Integration'];
 ---
 
-<section class="bg-gp-warm-white py-24 md:py-32" id="ablauf">
+<section class="bg-gp-white py-24 md:py-32" id="ablauf">
   <div class="mx-auto max-w-(--container-content) px-5 sm:px-8">
-    <div class="max-w-2xl reveal">
+    <div class="process-intro reveal">
+      <p class="eyebrow">Schritt für Schritt</p>
       <h2 class="font-display font-bold text-[26px] md:text-4xl lg:text-5xl leading-tight text-gp-black">
         Der Weg zu einer tragfähigen Nachfolge
       </h2>
       <p class="mt-6 text-lg text-gp-black/70 leading-relaxed">
-        Sieben Phasen, in denen Verstehen vor Verändern kommt.
+        Sieben Stationen auf einem gemeinsamen Weg. Nicht jede Nachfolge verläuft geradlinig: Wir passen Tempo und nächste Schritte an Ihr Unternehmen und die beteiligten Menschen an.
       </p>
     </div>
 
-    <ol id="process-track" class="mt-16 relative ml-4 md:ml-6">
-      <span class="absolute left-0 top-0 bottom-0 w-px bg-gp-black/15" aria-hidden="true"></span>
-      <span
-        id="process-line-fill"
-        class="absolute left-0 top-0 w-px bg-gp-red origin-top scale-y-0"
-        style="height:100%"
-        aria-hidden="true"
-      ></span>
-      {
-        phases.map((phase, i) => (
-          <li class="group relative pl-14 md:pl-20 pb-14 last:pb-0 reveal">
-            <span class="process-node absolute -left-4 md:-left-6 top-0 -translate-x-1/2 flex items-center justify-center w-9 h-9 md:w-11 md:h-11 rounded-full bg-gp-warm-white border-2 font-display font-bold text-sm transition-colors duration-500 border-gp-black/25 text-gp-black/40 z-10">
-              {i + 1}
-            </span>
-            <div class="relative overflow-hidden bg-gp-white border border-gp-black/10 p-6 md:p-8 transition-colors duration-300 group-hover:border-gp-red/40">
-              <span
-                class="pointer-events-none select-none absolute -top-4 right-4 font-display font-extrabold text-gp-black/[0.05] leading-none transition-colors duration-500 group-hover:text-gp-red/[0.08]"
-                style="font-size:6rem"
-                aria-hidden="true"
-              >
-                {phase.n}
-              </span>
-              <h3 class="relative font-display font-bold text-xl md:text-2xl text-gp-black mb-3">{phase.title}</h3>
-              <ul class="relative flex flex-wrap gap-2">
-                {phase.items.map((item) => (
-                  <li class="text-[13px] text-gp-black/70 bg-gp-grey-light px-3 py-1.5 rounded-full">{item}</li>
-                ))}
-              </ul>
-
-              {i === 1 && (
-                <div class="relative mt-6 border border-gp-red/40 bg-gp-warm-white p-6 max-w-xl">
-                  <span class="inline-block text-xs font-semibold text-white bg-gp-red px-2.5 py-1 rounded-full mb-3">
-                    Bei Verkauf / Beteiligung
-                  </span>
-                  <p class="text-sm text-gp-black/70 mb-4">
-                    Je nach Mandat koordinieren wir hierfür weitere Spezialisten aus unserem
-                    Netzwerk bzw. begleiten den M&amp;A-Prozess gemeinsam mit erfahrenen
-                    Partnern.
-                  </p>
-                  <ul class="flex flex-wrap gap-2">
-                    {maSteps.map((step) => (
-                      <li class="text-[13px] text-gp-black bg-gp-white border border-gp-black/10 px-3 py-1.5 rounded-full">{step}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          </li>
-        ))
-      }
+    <ol class="succession-path">
+      {phases.map((phase) => (
+        <li class="path-station">
+          <span class="path-marker">{phase.n}</span><Footprints class="path-footprints" size={24} aria-hidden="true" />
+          <div class="path-content"><h3>{phase.title}</h3><p>{phase.items.join(' · ')}</p></div>
+        </li>
+      ))}
     </ol>
+    <p class="path-destination"><Flag size={22} aria-hidden="true" /> Das Ziel: ein Unternehmen, das unter neuer Führung erfolgreich bleibt.</p>
+    <aside class="transaction-panel">
+      <div class="transaction-summary">
+        <p class="eyebrow">Bei Verkauf oder Beteiligung</p>
+        <h3>Unternehmerischer Übergang und Transaktion zusammen denken.</h3>
+        <p>Je nach Mandat koordinieren wir weitere Spezialisten aus unserem Netzwerk und begleiten den M&amp;A-Prozess gemeinsam mit erfahrenen Partnern.</p>
+        <a href="#partner">Unsere Zusammenarbeit mit AmbergTax <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="transaction-stages">
+        <p class="transaction-caption">Die Transaktion im Überblick</p>
+        <ol>{maSteps.map((step, index) => <li><span>{String(index + 1).padStart(2, '0')}</span>{step}</li>)}</ol>
+      </div>
+    </aside>
   </div>
 </section>
-
-<script>
-  const track = document.getElementById('process-track');
-  const fill = document.getElementById('process-line-fill');
-  const nodes = document.querySelectorAll('.process-node');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (track && fill) {
-    if (prefersReducedMotion) {
-      fill.style.transform = 'scaleY(1)';
-      nodes.forEach((n) => {
-        n.classList.remove('border-gp-black/25', 'text-gp-black/40');
-        n.classList.add('border-gp-red', 'text-gp-red');
-      });
-    } else {
-      let ticking = false;
-      const update = () => {
-        const rect = track.getBoundingClientRect();
-        const vh = window.innerHeight;
-        const total = rect.height + vh * 0.5;
-        const progressed = Math.min(Math.max(vh * 0.7 - rect.top, 0), total);
-        const ratio = total > 0 ? progressed / total : 0;
-        fill.style.transform = `scaleY(${ratio})`;
-
-        const fillPx = ratio * rect.height;
-        nodes.forEach((node) => {
-          const nodeTop = node.getBoundingClientRect().top - rect.top + node.clientHeight / 2;
-          if (fillPx >= nodeTop) {
-            node.classList.remove('border-gp-black/25', 'text-gp-black/40');
-            node.classList.add('border-gp-red', 'text-gp-red');
-          } else {
-            node.classList.remove('border-gp-red', 'text-gp-red');
-            node.classList.add('border-gp-black/25', 'text-gp-black/40');
-          }
-        });
-        ticking = false;
-      };
-      const onScroll = () => {
-        if (!ticking) {
-          requestAnimationFrame(update);
-          ticking = true;
-        }
-      };
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll, { passive: true });
-      update();
-    }
-  }
-</script>

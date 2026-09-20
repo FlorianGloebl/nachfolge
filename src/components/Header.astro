@@ -1,107 +1,49 @@
 ---
+import { ArrowUpRight, Menu, X } from '@lucide/astro';
 const base = import.meta.env.BASE_URL;
-
 const navItems = [
-  { href: '#nachfolge', label: 'Nachfolge' },
-  { href: '#ansatz', label: 'Unser Ansatz' },
-  { href: '#nachfolger-finden', label: 'Nachfolger finden' },
-  { href: '#ablauf', label: 'Ablauf' },
-  { href: '#team', label: 'Team' },
-  { href: '#partner', label: 'Partner' },
-  { href: '#wissen', label: 'Wissen' },
+ { href: '#problem', label: 'Orientierung' },
+ { href: '#ansatz', label: 'Ansatz' },
+ { href: '#ablauf', label: 'Ablauf' },
+ { href: '#nachfolger-finden', label: 'Nachfolgewege' },
+ { href: '#partner', label: 'Partner' },
+ { href: '#team', label: 'Team' },
+ { href: '#termine', label: 'Termine' },
+ { href: '#kontakt', label: 'Kontakt' },
 ];
 ---
-
-<header
-  class="sticky top-0 z-40 bg-gp-black/95 backdrop-blur supports-[backdrop-filter]:bg-gp-black/90 border-b border-white/10"
->
-  <div class="mx-auto max-w-(--container-content) px-5 sm:px-8 h-16 md:h-20 flex items-center justify-between gap-4">
-    <a href={base} class="flex items-center gap-2 shrink-0" aria-label="G&amp;P Management Consultants – Startseite">
-      <img
-        src={`${base}logos/gundp-logo.svg`}
-        alt="G&amp;P Management Consultants"
-        class="h-9 md:h-11 w-auto brightness-0 invert"
-      />
+<header class="site-header">
+  <div class="gp-container header-inner">
+    <a href={base} class="brand" aria-label="G&P Unternehmensnachfolge – Startseite">
+      <div class="brand-stack"><img class="brand-gp" src={`${base}logos/gundp-logo.svg`} alt="G&P" width="64" height="64" /><img class="brand-vs" src={`${base}logos/vollmer-scheffczyk.png`} alt="Vollmer & Scheffczyk" width="64" height="64" /></div>
+      <span>UNTERNEHMENSNACHFOLGE<span>GESTALTEN</span></span>
     </a>
-
-    <nav class="hidden lg:flex items-center gap-7 text-sm text-white/85" aria-label="Hauptnavigation">
-      {
-        navItems.map((item) => (
-          <a href={item.href} class="hover:text-white transition-colors">
-            {item.label}
-          </a>
-        ))
-      }
+    <nav class="desktop-nav" aria-label="Hauptnavigation">
+      {navItems.map((item) => <a href={`${base}${item.href}`}>{item.label}</a>)}
     </nav>
-
-    <div class="hidden lg:block shrink-0">
-      <a
-        href="#kontakt"
-        class="inline-flex items-center bg-gp-red hover:bg-gp-red-dark text-white text-sm font-medium px-5 py-2.5 transition-colors"
-      >
-        Erstgespräch vereinbaren
-      </a>
-    </div>
-
-    <button
-      id="menu-toggle"
-      type="button"
-      class="lg:hidden text-white p-2 -mr-2"
-      aria-label="Menü öffnen"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-    >
-      <svg id="icon-open" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-        <line x1="3" y1="6" x2="21" y2="6" />
-        <line x1="3" y1="12" x2="21" y2="12" />
-        <line x1="3" y1="18" x2="21" y2="18" />
-      </svg>
-      <svg id="icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="hidden">
-        <line x1="6" y1="6" x2="18" y2="18" />
-        <line x1="6" y1="18" x2="18" y2="6" />
-      </svg>
-    </button>
+    <a href={`${base}#termin`} class="gp-button header-contact">Gespräch vereinbaren <ArrowUpRight size={16} /></a>
+    <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"><Menu id="icon-open" /><X id="icon-close" class="hidden" /></button>
   </div>
-
-  <div id="mobile-menu" class="lg:hidden hidden border-t border-white/10 bg-gp-black">
-    <nav class="flex flex-col px-5 py-4 gap-1 text-white/90" aria-label="Mobile Navigation">
-      {
-        navItems.map((item) => (
-          <a href={item.href} class="py-3 text-base border-b border-white/5 last:border-none">
-            {item.label}
-          </a>
-        ))
-      }
-      <a
-        href="#kontakt"
-        class="mt-4 inline-flex justify-center items-center bg-gp-red text-white text-sm font-medium px-5 py-3"
-      >
-        Erstgespräch vereinbaren
-      </a>
-    </nav>
-  </div>
+  <nav id="mobile-menu" class="mobile-menu hidden" aria-label="Mobile Navigation">
+    {navItems.map((item) => <a href={`${base}${item.href}`}>{item.label}</a>)}
+    <a href={`${base}#termin`} class="gp-button">Gespräch vereinbaren <ArrowUpRight size={16} /></a>
+    <a href="https://www.g-u-p.de/">Zur G&amp;P Website ↗</a>
+  </nav>
 </header>
-
 <script>
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
-  const iconOpen = document.getElementById('icon-open');
-  const iconClose = document.getElementById('icon-close');
-
-  toggle?.addEventListener('click', () => {
-    const isOpen = !menu?.classList.contains('hidden');
-    menu?.classList.toggle('hidden');
-    iconOpen?.classList.toggle('hidden');
-    iconClose?.classList.toggle('hidden');
-    toggle.setAttribute('aria-expanded', String(!isOpen));
+  const setOpen = (open: boolean) => {
+    menu?.classList.toggle('hidden', !open);
+    document.getElementById('icon-open')?.classList.toggle('hidden', open);
+    document.getElementById('icon-close')?.classList.toggle('hidden', !open);
+    toggle?.setAttribute('aria-expanded', String(open));
+    toggle?.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+  };
+  toggle?.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+  menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') { setOpen(false); toggle.focus(); }
   });
-
-  menu?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      menu.classList.add('hidden');
-      iconOpen?.classList.remove('hidden');
-      iconClose?.classList.add('hidden');
-      toggle?.setAttribute('aria-expanded', 'false');
-    });
-  });
+  window.matchMedia('(min-width: 1100px)').addEventListener('change', event => { if (event.matches) setOpen(false); });
 </script>

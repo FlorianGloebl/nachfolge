@@ -1,86 +1,24 @@
 ---
-import { FileDown, ShieldCheck } from '@lucide/astro';
-const base = import.meta.env.BASE_URL;
+import { ArrowUpRight, Check } from '@lucide/astro';
 ---
-
-<section class="bg-gp-charcoal text-white py-24 md:py-32" id="wissen">
-  <div class="mx-auto max-w-(--container-content) px-5 sm:px-8">
-    <div class="grid lg:grid-cols-2 gap-16 items-start">
-      <div class="reveal">
-        <FileDown class="w-9 h-9 text-gp-red mb-6" strokeWidth={1.5} />
-        <h2 class="font-display font-bold text-[26px] md:text-4xl leading-tight">Der G&amp;P Nachfolge-Check</h2>
-        <p class="mt-5 text-lg text-white/70 leading-relaxed max-w-md">
-          7 Fragen, die Sie vor jeder Unternehmensnachfolge ehrlich beantworten sollten.
-        </p>
-        <p class="mt-6 text-white/50 text-sm max-w-md leading-relaxed">
-          Nach dem Absenden erhalten Sie eine E-Mail zur Bestätigung Ihrer Adresse
-          (Double-Opt-in). Nach Bestätigung senden wir Ihnen den Download-Link zum
-          Nachfolge-Check automatisch zu.
-        </p>
-      </div>
-
-      <div class="bg-white/5 border border-white/10 p-8 md:p-10 reveal">
-        <!--
-          BREVO EMBED — Hier wird später der offizielle Brevo Embedded-Form-Code
-          (Double-Opt-in-Formular) eingefügt und dieses Platzhalter-Formular ersetzt.
-          Keine API-Keys/Secrets im Frontend. Das reale Formular übernimmt:
-          E-Mail-Feld, Einwilligung, Double-Opt-in-Trigger, DSGVO-Text von Brevo.
-        -->
-        <form id="whitepaper-form" class="space-y-5" data-brevo-placeholder="true">
-          <div>
-            <label for="wp-email" class="block text-sm text-white/70 mb-2">E-Mail-Adresse</label>
-            <input
-              id="wp-email"
-              name="email"
-              type="email"
-              required
-              placeholder="ihre.email@unternehmen.de"
-              class="w-full bg-white/10 border border-white/20 focus:border-gp-red px-4 py-3 text-white placeholder:text-white/30 outline-none transition-colors"
-            />
-          </div>
-
-          <label class="flex items-start gap-3 text-sm text-white/60 leading-snug">
-            <input
-              type="checkbox"
-              required
-              class="mt-1 accent-gp-red"
-            />
-            <span>
-              Ich möchte den Nachfolge-Check per E-Mail erhalten und bin mit der
-              Verarbeitung meiner Daten gemäß <a href={`${base}datenschutz/`} class="underline hover:text-white">Datenschutzerklärung</a> einverstanden.
-            </span>
-          </label>
-
-          <button
-            type="submit"
-            class="w-full bg-gp-red hover:bg-gp-red-dark text-white font-medium px-6 py-4 transition-colors"
-          >
-            Nachfolge-Check anfordern
-          </button>
-
-          <p class="flex items-center gap-2 text-xs text-white/40 pt-1">
-            <ShieldCheck class="w-4 h-4 shrink-0" strokeWidth={1.5} />
-            Kein Spam. Versand über Brevo, jederzeit abbestellbar.
-          </p>
-        </form>
-
-        <div id="whitepaper-success" class="hidden text-center py-6">
-          <p class="font-display text-xl mb-2">Fast geschafft.</p>
-          <p class="text-white/70">
-            Bitte prüfen Sie jetzt Ihr E-Mail-Postfach und bestätigen Sie Ihre Adresse.
-          </p>
-        </div>
-      </div>
+<section class="whitepaper-section" id="wissen">
+  <div class="gp-container whitepaper-layout">
+    <div class="whitepaper-cover" aria-label="Nachfolge-Check für den Mittelstand, G&P Whitepaper">
+      <span class="eyebrow">G&amp;P / WISSEN FÜR DIE PRAXIS</span>
+      <div><span class="cover-number" aria-hidden="true">7</span><h3>Gute Fragen.<br />Klare Perspektiven.</h3></div>
+      <p>Nachfolge-Check<br />für den Mittelstand <ArrowUpRight size={24} /></p>
+    </div>
+    <div>
+      <p class="eyebrow">Der erste Schritt: die richtigen Fragen</p>
+      <h2>Wie bereit ist Ihr Unternehmen für die Nachfolge?</h2>
+      <p class="section-lead">Sieben Fragen, die Sie vor jeder Unternehmensnachfolge ehrlich beantworten sollten. Kompakt, praxisnah und kostenlos.</p>
+      <ul class="whitepaper-points">
+        <li><Check size={18} /> Selbstcheck für Ihre Ausgangslage</li>
+        <li><Check size={18} /> Drei entscheidende Klärungen im Übergabeprozess</li>
+        <li><Check size={18} /> Orientierung für Ihre nächsten Schritte</li>
+      </ul>
+      <a href="https://www.g-u-p.de/whitepaper" class="gp-button">Zum kostenlosen Nachfolge-Check <ArrowUpRight size={18} /></a>
+      <p class="whitepaper-hint">Download über unsere Whitepaper-Seite.</p>
     </div>
   </div>
 </section>
-
-<script>
-  // Placeholder handler — remove once the real Brevo embed form replaces this block.
-  const form = document.getElementById('whitepaper-form');
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    form.classList.add('hidden');
-    document.getElementById('whitepaper-success')?.classList.remove('hidden');
-  });
-</script>
